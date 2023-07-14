@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <div id="container">
+        <h1>Login</h1>
+        <div class="box">
+            <div class="warning">
+                <p><i class="fa-sharp fa-solid fa-circle-xmark" style="color: #fa0000;"></i>Invalid username or password</p>
+            </div>
+            <div>
+                <input type="text" id="username" name="username" placeholder="Username">
+            </div>
+            <div>
+
+                <input type="password" id="password" name="password" placeholder="Password">
+            </div>
+            <div class="forget">
+                <label style="color:#fff;"><input style="margin-right: 0.3rem;" type="checkbox" >Remember Me</label>
+                <a  href="#">Forget Password</a>
+            </div>
+            <div>
+                <input type="button" onclick="login()" value="Login" name="login">
+            </div>
+            <div>
+                <p>Don't have an account? <a href="./signup.html">Register</a></p>   
+            </div>
+        </div>
+    </div>
+    <script src="./login.js"></script>
+</body>
+</html>
