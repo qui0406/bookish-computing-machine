@@ -1,0 +1,123 @@
+/* dasdboard */
+.dasdboard {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+.box_expense{
+    width: 20vw;
+    height: 15vh;
+    
+    margin: 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+}
+.box_expense:first-child{
+    background-color: #1877F2;
+}
+.box_expense:nth-child(2){
+    background-color: #2ABBA7;
+}
+.box_expense:last-child{
+    background-color: #F0284A;
+}
+.box_expense h3 {
+    color: #fff;
+    text-align: center;
+    margin-top: 1rem;
+}
+.box_expense> h3:first-child{
+    border-bottom: 1px solid #ccc;
+}
+
+.target{
+    width: 40vw;
+    height: 30vh;
+    background-color:#FFC575;
+    text-align: center;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+.target h2{
+    color: #fff;
+}
+.header_target > div {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+}
+.target .icon_main{
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+}
+.target .icon_main{
+    padding: 0.3rem 1rem;
+    display: block;
+    border: 1px solid #fff;
+}
+#target {
+    width: 70%;
+    padding: 0.5rem 0;
+    font-size: 20px;
+}
+
+.header_target{
+    padding: 2rem 2rem 1rem 2rem;
+}
+.target button {
+    padding: 1rem;
+    font-size: 17px;
+    margin-top: 1rem;
+    cursor: pointer;
+    background-color: lightgray;
+}
+.target button:hover {
+    background-color: #f00;
+    color: #fff;
+}
+.dasdboard .incomeMoney{
+    width: 35vw;
+    height: 30vh;
+    cursor: pointer;
+    background-color: #FFC575;
+    text-align: center;
+    justify-content: space-around;
+    border-radius: 10px;
+}
+.dasdboard .incomeMoney h2{
+    margin-top: 2rem;
+    color: #fff;
+}
+.moneyCurrent {
+    margin: 0 auto;
+    margin-top: 2rem;
+    width: 60%;
+    height: 30vh;
+    cursor: pointer;
+    background-color: #5DAC41;
+    text-align: center;
+    border-radius: 10px;
+}
+.moneyCurrent >h2 {
+    padding-top: 3rem;
+    color: #fff;
+}
+
+
+.moneyCurrent .grogress {
+    position: relative;
+    height: 2rem;
+    margin: 3rem auto;
+    margin-bottom: 1rem;
+    width: 80%;
+    background-color: blue;
+}
+.moneyCurrent .grogress .grogressing {
+    position: absolute;
+    height: 100%;
+    width: 20%;
+    background-color: red;
+}

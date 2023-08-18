@@ -1,0 +1,35 @@
+body {
+    font-size: 40px;
+  }
+  
+  .lS {
+    justify-content: space-between;
+    width: 65%;
+    border: 5px solid rgb(160, 155, 155);
+    background-color: rgb(182, 171, 171);
+    margin: auto;
+    margin-bottom: 15px;
+  }
+  
+  .flex {
+    display: flex;
+    align-items: center;
+  }
+  
+  ul {
+    list-style-type: none;
+  
+    padding: 10px 0;
+    margin: auto;
+  }
+  
+  ul > li:not(:first-child)::before {
+    content: "-";
+    margin-right: 5px;
+    font-size: 25px;
+  }
+  
+  li > span {
+    padding-right: 15px;
+  }
+  

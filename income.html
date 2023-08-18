@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/income.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="./assets/css/web_mobile.css">
+    </head>
+    <body>
+        <div id="sub_nav">
+            <div class="img_nav flex">
+               <div>
+                    <img src="./assets/media/imgs/vi-sao-can-lap-bang-quan-ly-chi-tieu.jpg" alt="">
+               </div>
+              <div>
+                   
+                    <img src="/assets/media/imgs/anh1.png" alt="Quan ly chi tieu">
+              </div>
+    
+        </div>
+    <nav class="flex space_between">
+        <div class="showTask_bar"><i class="fa-solid fa-bars"></i></div>
+        <h1>Love Money Management</h1>
+        <div class="user_src flex">
+            <i class="fa-solid fa-user"></i>
+            <div>Tài khoản nguồn</div>
+        </div>
+    </nav>
+    <div id="main">
+        <aside class="animate__animated animate__slideInLeft">
+            <ul class="menu">
+                <li>                    
+                    <div>
+                        <a href="./dasdboard.html"><i class="fa-solid fa-house"></i><span>Bảng điều khiển</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <a class="act" href=""><i class="fa-solid fa-chart-simple"></i><span>Thu nhập</span></a>
+                    </div>
+                </li>
+                
+                <li>
+                    <div>
+                        <a href="#"><i class="fa-solid fa-calendar-days"></i><span>Chi tiêu</span></a>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                    <ul class="submenu">
+                        <li><a href="#"><i class="fa-solid fa-plus"></i><span>Thêm</span></a></li>
+                        <li><a href="#"><i class="fa-solid fa-table"></i><span>Xem chi tiêu</span></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div>
+                        <a href="#"><i class="fa-solid fa-coins"></i><span>Tiết kiệm</span></a>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                    <ul class="submenu">
+                        <li><a href="#"><span>Tài khoản hiện tại</span></a></li>
+                        <li><a href="#"><span>Tài khoản mới</span></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div>
+                        <a href="#"><i class="fa-sharp fa-solid fa-calculator"></i><span>Báo cáo thống kê</span></a>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                    <ul class="submenu">
+                        <li><a href="#"><i class="fa-solid fa-square-root-variable"></i><span>Theo số liệu</span></a></li>
+                        <li><a href="#"><i class="fa-sharp fa-solid fa-chart-simple"></i><span>Theo biểu đồ</span></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div>
+                        <a href="#"><i class="fa-solid fa-bookmark"></i><span>Lịch sử giao dịch</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <a href="#"><i class="fa-solid fa-user"></i><span>Quản lý tài khoản</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="logout">
+                        <a onclick="log_out()" href="#"><i class="fa-solid fa-right-from-bracket"></i><span>Đăng xuất</span></a>
+                    </div>
+                </li>
+               
+            </ul>
+        </aside>
+
+
+        <main class="flex">
+            <div class="fake_box"></div>
+            <div class="contain">
+               
+
+                <!--  Thu nhap -->
+                <div id="income">
+                    <div class="status">Thành công<i class="fa-solid fa-check" style="color: #16bd0a;"></i></div>
+                    <div class="flex">
+                        <h1>Danh sách khoản thu nhập</h1>
+                        <h2><sub></sub></h2>
+                    </div>
+                    <div class="newIncome">
+                        <input type="button" value="Thêm mới">
+                    </div>
+                    <div class="tableIncome hide">
+                        <div class="inputTable animate__animated animate__slideInDown">
+                            <a href="javascript:;">&times;</a>
+                            <h2>Cập nhật</h2>
+                                <form action="javascript:void(0);">
+                                <div class="flex">
+                                    <div class="left flex_col">
+                                        <p>Tên lọai thu nhập:
+                                            <div>
+                                                <input name="inputIncome" type="text" placeholder="Nhập tên loại thu nhập" required>
+                                            </div>                                        </p>
+                                        <p>Số tiền: 
+                                            <div>
+                                                <input name="inputIncome" type="number" placeholder="Nhập số tiền" required>
+                                            </div>
+                                        </p>
+                                        <p>Ngày:
+                                            <div>
+                                                <input name="inputIncome" type="date" required>
+                                            </div>
+                                        </p>
+                                    </div>
+                                    <div class="right flex_col">
+                                        <p>Chú thích: 
+                                            <div>
+                                                <input name="inputIncome" type="text" placeholder="Nhập ghi chú">
+                                            </div>
+                                        </p>
+                                        <p>Giờ: 
+                                            <div>
+                                                <input name="inputIncome" type="time" required>
+                                            </div>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex">
+                                    <input type="button" id="closeIncome" value="Đóng">
+                                    <button type="submit" id="saveIncome">
+                                        Lưu
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên loại thu nhập</th>
+                                <th>Số tiền</th>
+                                <th>Ngày</th>
+                                <th>Chú thích</th>
+                                <th>Giờ</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                          
+                        </tbody>
+                        <tfoot>
+                            <th colspan="2">Tổng</th>
+                            <th></th>
+                        </tfoot>
+                    </table>
+                    
+                </div>
+
+                <!-- Tiet kiem -->
+                
+                <!-- Bao cao -->
+
+                <!-- Lich su gd -->
+
+                <!-- Tai khoan -->
+
+                <!-- Dang xuat -->
+                <div class="showlogout">
+                    <div id="logout" class="animate__animated animate__slideInDown">
+                        <a href="javascript:;">&times;</a>
+                        <h3>Bạn có chắc chắn muốn đăng xuất ?</h3>
+                        <div class="btnLogout">
+                            <button><a onclick="loadTimeOut()" >Có</a></button>
+                            <button class="no">Không</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- grogress -->
+                <div class="grogress">
+                    <i class="fa-sharp fa-solid fa-spinner"></i>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer>
+
+    </footer>
+    <script src='./assets/js/main.js'></script>
+    <script src="./assets/js/income.js"></script>
+    <script src="./assets/js/getData.js"></script>
+</body>
+</html>

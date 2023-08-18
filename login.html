@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <link rel="stylesheet" href="/assets/css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <section class="overplay">
+        <div class="form-box">
+            <section class="form active">
+                <h1>Đăng nhập vào YourBill</h1>
+                <form action="javascript:void(0)" method="">
+                  <div class="warn">
+                    <p><i class="fa-sharp fa-solid fa-circle-xmark" style="color: #fa0000;"></i>Invalid username or password</p>
+                </div>
+                    <div class="input-box">
+                        <div class="icon-form">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <input type="text" name="" id="uname_login" placeholder="Tên người dùng hoặc email" required>
+                    </div>
+                    <div class="input-box">
+                        <div class="icon-form">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <input type="password" name="" id="pw_login" placeholder="Mật khẩu..." required>
+                    </div>
+                    
+                    <div class="remember-input">
+                        <input type="checkbox" id="remember-login">
+                        <label for="pw-login">Duy trì đăng nhập</label>  
+                    </div>  
+                    <span class="noity">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        Vui lòng nhập đủ thông tin!
+                    </span>
+                    <button type="submit" id="login-btn">Đăng nhập ngay!</button>
+                </form>
+                <div class="more">
+                    <a href="#">
+                        <span>Bạn quên mật khẩu?</span>   
+                    </a>
+                    <span>Hoặc</span>
+                    <button id="signup-f">Tạo tài khoản mới?</button>
+                </div>
+                
+            </section>
+            <section class="form">
+                <h1>Đăng ký tài khoản YourBill</h1>
+                <form action="" method="">
+                    <div class="input-box error">
+                        <div class="icon-form">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <input type="email" name="" id="mail-signup" placeholder="Email đăng ký" required>
+                    </div>
+                    <div class="input-box">
+                        <div class="icon-form">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <input type="text" name="" id="uname_signup" placeholder="Tên người dùng" required>
+                    </div>
+                    <div class="input-box">
+                        <div class="icon-form">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <input type="password" name="" id="pw_signup" placeholder="Mật khẩu..." required>
+                    </div>
+                    <div class="input-box">
+                        <div class="icon-form">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <input type="password" name="" id="pw2_signup" placeholder="Nhập lại mật khẩu" required>
+                    </div>
+                    <div class="agree-signup-box">
+                        <input type="checkbox" id="agree-signup" required>
+                        <label for="agree-signup">
+                            Bạn đồng ý các <a href="#">điều khoản</a> của chúng tôi
+                        </label>  
+                    </div>  
+                    <div class="noity">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        Vui lòng nhập đủ thông tin!
+                    </div>
+                    <button type="submit" id="signup-btn">Đăng kí ngay!</button>
+                </form>
+                <div class="more">
+                    <br>
+                    <span>Hoặc</span>
+                    <button id="login-f">Bạn đã có tài khoản?</button>
+                </div>
+            </section>
+        </div>
+    </section>
+    <script src="/assets/js/login.js"></script>
+</body>
+</html>
+

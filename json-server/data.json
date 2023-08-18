@@ -1,0 +1,87 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "qui123",
+      "password": 123,
+      "income": [
+        {
+          "type": "r23qrq",
+          "money": "352524",
+          "date": "fqwfq",
+          "note": "2023-08-17",
+          "time": "00:16",
+          "id": 9
+        },
+        {
+          "type": "dfasc",
+          "money": "241432",
+          "date": "2023-08-17",
+          "note": "fwqafs",
+          "time": "21:04",
+          "id": 11
+        }
+      ],
+      "expense": [
+        {
+          "type": "Ăn uống",
+          "money": "34143",
+          "date": "2023-08-17",
+          "note": "fefwf",
+          "time": "00:15",
+          "id": 1
+        },
+        {
+          "type": "Học tập",
+          "money": "200000",
+          "date": "2023-08-16",
+          "note": "qwr3rqw",
+          "time": "00:24",
+          "id": 2
+        },
+        {
+          "type": "Sinh hoạt",
+          "money": "500000",
+          "date": "2023-08-26",
+          "note": "wrqwr",
+          "time": "00:25",
+          "id": 3
+        },
+        {
+          "type": "Học tập",
+          "money": "100200",
+          "date": "2023-08-17",
+          "note": "ửqw",
+          "time": "16:11",
+          "id": 4
+        },
+        {
+          "type": "Di chuyển",
+          "money": "142112",
+          "date": "2023-08-17",
+          "note": "ửqfaws",
+          "time": "16:11",
+          "id": 5
+        }
+      ]
+    },
+    {
+      "username": "anhqui1234",
+      "password": "1234",
+      "data": {
+        "income": [],
+        "expense": []
+      },
+      "id": 2
+    },
+    {
+      "username": "",
+      "password": "",
+      "data": {
+        "income": [],
+        "expense": []
+      },
+      "id": 3
+    }
+  ]
+}

@@ -1,0 +1,224 @@
+#expense{
+    margin-top: 2rem;
+    height: 100%;
+    /* width: 100%; */
+    position: relative;
+}
+#expense h2 {
+    padding-left: 0.5rem;
+}
+.newExpense input{
+    padding: 1rem;
+    cursor: pointer;
+    background-color: green;
+    color: #fff;
+    font-size: 17px;
+    margin-bottom: .2rem;
+    margin-top: 1rem;
+}
+
+table{
+    width: 98%;
+    margin-right: 1rem;
+}
+table, tr, td, th{
+    border: 1px solid #000;
+    border-collapse: collapse;
+}
+td, th{
+    padding: 0.3rem 0.5rem;
+}
+table tr td input{
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+table tr td input:focus{
+    border: none;
+    outline: none;
+}
+.tableExpense{
+    /* display: none; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 99999;
+}
+.inputTable{
+    background-color: #fff;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    right: 25%;
+    bottom: 25%;
+    border-radius: 10px;
+    outline: none;
+    animation: showToTop 1s;
+}
+.inputTable >a{
+    text-decoration: none;
+    font-size: 40px;
+    display: inline-block;
+    padding: 0 1rem;
+    margin-left: auto ;
+    border: 1px solid #ccc;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0 10px 0 0;
+}
+.inputTable >a:hover{
+    background-color: #f00;
+    color: #fff;
+}
+.inputTable h2{
+    margin-top: 3rem;
+    display: block !important;
+    border-bottom: 1px solid #ccc ;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+.tableExpense .inputTable .flex >div {
+    margin: 2rem auto; 
+}
+.tableExpense .inputTable input{
+    padding: 0.4rem;
+    width: 100%;
+    margin-right: 4rem;
+}
+.inputTable {
+    text-decoration: none;
+    position: absolute;
+    bottom: 10%;
+    right: 20%;
+    border: 1px solid lightgrey;
+    padding: 0.6rem 1rem;
+    /* color: red; */
+    font-weight: 700;
+    background-color: lightgrey;
+}
+#expense table tr td .delete, #expense table tr td .fix{
+    border: 2px solid #fff;
+    padding: .3rem;
+    margin: 0 .5rem;
+}
+#expense table tr td .edit{
+    background-color: rgb(62, 220, 83);
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+    padding: .3rem;
+    border: 2px solid #fff;
+
+}
+#expense table tr td .delete{
+    background-color: #f00;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}
+#expense table tfoot th:nth-child(2){
+    text-align: left;
+}
+#expense form div.flex:last-child{
+    display: flex;
+    justify-content: end;
+}
+#expense .tableExpense #saveItemExpense{
+    display: block;
+    padding: .5rem 2rem;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: green;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 10%;
+}
+#expense .tableExpense #saveItemExpense:hover{
+    box-shadow: 2px 2px 2px #000;
+}
+#expense .tableExpense form input#closeExpense{
+    display: block;
+   background-color: gray;
+   cursor: pointer;
+   margin: 0;
+   padding: .6rem 2rem;
+   width: fit-content;
+   font-weight: 700;
+   border: 1px solid #fff ;
+   margin-right: 1rem;
+}
+#expense .tableExpense form input#closeExpense:hover{
+    box-shadow: 2px 2px 2px #f00;
+}
+#expense .tableExpense #saveExpense{
+    display: block;
+    padding: .5rem 2rem;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: green;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 10%;
+}
+#expense .tableExpense #saveExpense:hover{
+    box-shadow: 2px 2px 2px #000;
+}
+#expense .tableExpense form input#closeExpense{
+    display: block;
+   background-color: gray;
+   cursor: pointer;
+   margin: 0;
+   padding: .6rem 2rem;
+   width: fit-content;
+   font-weight: 700;
+   border: 1px solid #fff ;
+   margin-right: 1rem;
+}
+#expense .tableExpense form input#closeExpense:hover{
+    box-shadow: 2px 2px 2px #f00;
+}
+#expense form > div.flex:last-child{
+    display: flex;
+    justify-content: end;
+}
+.tableExpense .inputTable .flex >div {
+    margin: 2rem auto; 
+}
+.tableExpense .inputTable select{
+    width: 100%;
+    padding: .3rem;
+}
+
+.tableExpense .inputTable input{
+    padding: 0.3rem;
+    width: 100%;
+    margin-right: 3.5rem;
+}
+
+.tableExpense .inputTable select option:nth-child(8) #otherExpense{
+    display: none;
+}
+#otherExpense {
+    display: none;
+    border-top: none;
+}
+
+
+@keyframes err {
+    from{
+    outline: unset;    
+    }
+    to{
+        outline: 2px solid #f00;
+    }
+}
+.err{
+    animation: err;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+

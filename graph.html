@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/expense.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="./assets/css/chart.css">
+    <link rel="stylesheet" href="./assets/css/web_mobile.css">
+    </head>
+    <body>
+        <div id="sub_nav">
+            <div class="img_nav flex">
+               <div>
+                    <img src="./assets/media/imgs/vi-sao-can-lap-bang-quan-ly-chi-tieu.jpg" alt="">
+               </div>
+              <div>  
+                    <img src="/assets/media/imgs/anh1.png" alt="Quan ly chi tieu">
+              </div>
+        </div>
+    <nav class="flex space_between">
+        <div class="showTask_bar"><i class="fa-solid fa-bars"></i></div>
+        <h1>Love Money Management</h1>
+        <div class="user_src flex">
+            <i class="fa-solid fa-user"></i>
+            <div>Tài khoản nguồn</div>
+        </div>
+    </nav>
+    <div id="main">
+        
+        <aside class="animate__animated animate__slideInLeft">
+           
+            <ul class="menu">
+                
+                <li>                    
+                    <div>
+                        <a href="#"><i class="fa-solid fa-house"></i> <span>Bảng điều khiển</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <a href="#"><i class="fa-solid fa-chart-simple"></i><span>Thu nhập</span></a>
+                    </div>
+                </li>
+                
+                <li>
+                    <div>
+                        <a href="#"><i class="fa-solid fa-calendar-days"></i><span>Chi tiêu</span></a>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                    <ul class="submenu">
+                        <li><a href="#"><i class="fa-solid fa-plus"></i><span>Thêm</span></a></li>
+                        <li><a href="#"><i class="fa-solid fa-table"></i><span>Xem chi tiêu</span></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div>
+                        <a href="#"><i class="fa-solid fa-coins"></i><span>Tiết kiệm</span></a>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                    <ul class="submenu">
+                        <li><a href="#">Tài khoản hiện tại</a></li>
+                        <li><a href="#">Tài khoản mới</a></li>
+                    </ul>
+                </li>
+                <li class="act">
+                    <div>
+                        <a style="background-color: darkblue !important;" href="#"><i class="fa-sharp fa-solid fa-calculator"></i><span>Báo cáo thống kê</span></a>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                    <ul class="submenu">
+                        <li><a href="#"><i class="fa-solid fa-square-root-variable"></i>Theo số liệu</a></li>
+                        <li><a href="#"><i class="fa-sharp fa-solid fa-chart-simple"></i>Theo biểu đồ</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div>
+                        <a href="#"><i class="fa-solid fa-bookmark"></i><span>Lịch sử giao dịch</span></a>
+                  </div>
+                </li>
+                <li>
+                    <div>
+                        <a href="#"><i class="fa-solid fa-user"></i><span>Quản lý tài khoản</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="logout">
+                        <a onclick="log_out()" href="#"><i class="fa-solid fa-right-from-bracket"></i><span>Đăng xuất</span></a>
+                    </div>
+                </li>
+               
+            </ul>
+        </aside>
+
+        <main class="flex">
+            <div class="fake_box"></div>
+            <div class="contain">
+                <div>
+                    <h1 class="h1_main">Biểu đồ quản lý chi tiêu</h1>
+                    <h3>Chọn lựa chọn mà bạn muốn xem</h3>
+                    <select onchange="choseChart()" name="otp" id="chose">
+                        <option value="day">Ngày</option>
+                        <option value="week">Tuần</option>
+                        <option value="month">Tháng</option>
+                      </select>
+                    <div class="day">
+                        <h1>Chi tiêu trong ngày</h1>
+                        <div class="box">
+                            <h2>Biểu đồ biểu diễn số tiền chi tiêu trong ngày</h2>
+                            <canvas id="myChart" width="800" height="500"></canvas>
+                        </div>
+                        <div class="box">
+                            <h2>Biểu đồ biểu diễn phần trăm chi tiêu trong ngày</h2>
+                            <canvas id="myChartDay" width="800" height="500"></canvas>
+                        </div>
+                    </div>
+                    <div class="week hide">
+                        <h1>Chi tiêu trong tuần</h1>
+                        <div>
+                            <div class="box">
+                                <h2>Biểu đồ biểu diễn số tiền chi tiêu trong tuần</h2>
+                                <canvas id="myChart1" width="800" height="500" ></canvas>
+                            </div>
+                            <div class="box">
+                                <h2>Biểu đồ biểu diễn phần trăm chi tiêu trong tuần</h2>
+                                <canvas id="myChart11" width="800" height="500" ></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="month hide">
+                        <h1>Chi tiêu trong tháng</h1>
+
+                        <div>
+                            <div class="box">
+                                <h2>Biểu đồ biểu diễn số tiền chi tiêu trong tháng</h2>
+                                <canvas id="myChart2" width="800" height="500" ></canvas>
+                            </div>
+                            <div class="box">
+                                <h2>Biểu đồ biểu diễn phần trăm chi tiêu trong tháng</h2>
+                                <canvas id="myChart21" width="800" height="500" ></canvas>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+           
+                <div class="showlogout">
+                    <div id="logout" class="animate__animated animate__slideInDown">
+                        <a href="javascript:;">&times;</a>
+                        <h3>Bạn có chắc chắn muốn đăng xuất ?</h3>
+                        <div class="btnLogout">
+                            <button><a onclick="loadTimeOut()" >Có</a></button>
+                            <button class="no">Không</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- grogress -->
+                <div class="grogress">
+                    <i class="fa-sharp fa-solid fa-spinner"></i>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer>
+
+    </footer>
+   
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/assets/js/chart.js"></script>
+    <script src='./assets/js/main.js'></script>
+    <script src="./assets/js/getData.js"></script>
+</body> 
+</html>

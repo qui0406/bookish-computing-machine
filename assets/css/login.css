@@ -1,0 +1,234 @@
+:root {
+    --primary: #8a57e9;
+    --secondary: #4c75e6;
+}
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    background-image: linear-gradient(to right bottom , var(--primary), var(--secondary));
+}
+
+
+body{
+    background-color: #ccc;
+    background-image: linear-gradient(to right bottom , var(--primary), var(--secondary));
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+ 
+}
+
+a{
+    text-decoration: none;
+    color: unset;
+}
+
+a:hover{
+    text-decoration: underline;
+    color: unset;
+}
+
+section.overplay{
+    display: flex;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(10px) brightness(.5);
+}
+
+.warn {
+    display: none;
+}
+.warning {
+    display: block;
+}
+.form-box{
+    font-family: sans-serif;
+    position: relative;
+    margin: auto;
+    width: 100%;
+    height: 18rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    max-width: 500px;
+}
+
+section.overplay .form{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: fit-content;
+    background-color: aliceblue;
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.form .input-box{
+    display: flex;
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: 5px;
+    margin: 1rem 0;
+    overflow: hidden;
+}
+
+.input-box .icon-form{
+    padding: .5rem 1rem;
+    background-color: #dedede;
+    color: #555555;
+    border-right: 1px solid #000;
+}
+
+.input-box> input{
+    outline: 0;
+    border: 0;
+    width: max-content;
+    padding: 0 .4rem;
+    flex: 1;
+}
+
+.input-box .remember-input{
+    display: flex;
+    font-size: .8rem;
+    gap: .2rem;
+    margin-bottom: 1rem;
+}
+
+.input-box .remember-input input{
+    cursor: pointer;
+}
+
+#login-btn,#login-f{
+    color: #fff;
+    background-color: rgb(0, 162, 232);
+    outline: none;
+    border: none;
+    padding: .5rem;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    margin: .5rem 0;
+    font-size: 1rem;
+}
+
+.more{
+    font-size: .9rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .5rem;
+}
+
+#signup-f,#signup-btn{
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: rgb(223, 175, 0);
+    color: #fff;
+    padding: .5rem 3rem;
+    user-select: none;
+    font-size: 1rem;
+    border-radius: 10px;
+}
+
+/*  */
+section.overplay .form{
+    display: none;
+}
+
+section.overplay .form.active{
+    display: block;
+    animation: zoom .2s ease-in forwards;
+}
+
+@keyframes zoom {
+    0%{
+        background:none;
+        opacity: 0;
+        scale: 0;
+    }
+    80%{
+        opacity: .9;
+        scale: 1.05;
+    }
+    100%{
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+.input-box.error{
+    border: 2px solid red;
+    color: red;
+}
+
+.input-box.error input{
+    background-color: rgb(245, 141, 141);
+}
+
+.input-box.error div{
+    background-color: rgb(239, 159, 159);
+    border-right: 2px solid red;
+}
+
+.input-box.error i{
+    color: rgb(179, 0, 0);
+}
+
+
+.noity{
+    display: block;
+    opacity: 0;
+}
+
+.noity.active{
+    font-style: italic;
+    color: red;
+    margin: .5rem 0;
+    opacity: 1;
+    animation: bounce .2s ease;
+}
+
+@keyframes bounce{
+    0%{
+        transform: translateY(0);
+    }
+    20%{
+        transform: translateY(6px);
+
+    }
+    40%{
+        transform: translateY(0);
+
+    }
+    70%{
+        transform: translateY(4px);
+
+    }
+    80%{
+        transform: translateY(0);
+
+    }
+    90%{
+        transform: translateY(2px);
+
+    }
+    100%{
+        transform: translateY(0);
+
+    }
+}

@@ -1,0 +1,46 @@
+body{
+    position: relative;
+    background-color: aliceblue !important;
+}
+
+canvas{
+    display: block;
+    height: 50px;
+    width: 300px;
+    box-sizing: border-box;
+}
+#main{
+    height: 100vh;
+}
+
+main{
+    height: 300%;
+    background-color: aliceblue !important;
+}
+
+h1{
+    margin-top: 4rem;
+    text-align: center;
+    color: #f00;
+}
+h3{
+    margin-top: 1rem;
+}
+select{
+    width: 10vw;
+    padding: .5rem;
+    font-size: 25px;
+}
+#myChart{
+    margin: 5rem 0;
+}
+.box{
+    width: 60%;
+    height: 60%;
+    margin: 5rem auto;
+}
+h2{
+    text-align: center;
+    color: #f00;
+    margin: 3rem;
+}

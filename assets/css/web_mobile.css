@@ -1,0 +1,242 @@
+@media screen and (max-width: 1200px){
+    #main aside {
+        top: 3rem;
+        width: 17%;
+    }
+    main .fake_box {
+        width: 20%;
+    }
+    main .contain{
+        width: 80%;
+        
+    }
+    #main aside ul > li div a {
+        font-size: 15px;
+    }
+    .inputTable {
+        bottom: 20%;
+        right: 18%;
+        left: 18%;
+        top: 25%;
+    }
+    #logout {
+          
+        width: 55vw;
+        min-height: 40vh;
+        border-radius: 10px;
+    }
+}
+@media screen and (max-width: 971px){
+   
+    .inputTable {
+        bottom: 20%;
+        right: 12%;
+        left: 12%;
+        top: 25%;
+    }
+    #logout {
+      
+        width: 55vw;
+        min-height: 40vh;
+        border-radius: 10px;
+    }
+    #main aside ul > li div a >i{
+        font-size: 25px;
+    }
+    #main aside ul > li div >i{
+       display: none;
+    }
+
+    #main aside ul > li div a span{
+        display: none;
+    }
+    .submenu li a span{
+        display: none;
+    }
+    .submenu li a {
+        margin-left: 2.3rem;
+        font-size: 20px;
+    }
+    #main aside {
+        top: 3rem;
+        width: 9%;
+        display: flex;
+    }
+    main .fake_box {
+        width: 10%;
+    }
+    main .contain{
+        width: 87%;
+        margin-left: 1rem;
+    }
+    
+}
+
+
+
+
+@media screen and (max-width: 800px){
+    .showTask_bar{
+        display: block;
+    }
+    #main aside ul > li div >i{
+        display: inline;
+     }
+ 
+     #main aside ul > li div a span{
+         display: inline;
+     }
+     .submenu li a span{
+         display: inline;
+     }
+    #main aside {
+        top: 3rem;
+        width: 35%;
+    }
+    main .fake_box {
+        width: 19%;
+        display: none;
+    }
+    main .contain{
+        width: 98%;
+        margin-left: 1rem;
+    }
+    #main aside ul > li div a span{
+         font-size: 18px;
+     }
+     .submenu li a {
+        margin-left: 2.3rem;
+        font-size: 18px;
+    }
+     .inputTable {
+         bottom: 20%;
+         right: 6%;
+         left: 6%;
+         top: 25%;
+     }
+    #logout {
+        width: 90vw;
+        min-height: 40vh;
+        border-radius: 10px;
+    }
+
+    .inputTable h2{
+        margin-top: 1rem;
+        padding-bottom: .5rem;
+    }
+
+    .tableIncome .inputTable input {
+        padding: 0.4rem;
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    /* dasdboard */
+    .contain .dasdboard:nth-child(2){
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column !important;
+    }
+
+
+}
+
+
+@media screen and (max-width: 400px){
+    nav h1{
+        font-size: 19px;
+    }
+    nav .user_src > div{
+        display: none;
+    }
+    .showTask_bar{
+        display: block;
+    }
+    #main aside ul > li div >i{
+        display: inline;
+    }
+ 
+    #main aside ul > li div a span{
+        display: inline;
+        
+    }
+    .submenu li a span{
+         display: inline;
+    }
+    #main aside {
+        /* top: 3rem;
+        width: 35%; */
+        display: none !important;
+    }
+    main .fake_box {
+        width: 19%;
+        display: none;
+    }
+    main .contain{
+        width: 100%;
+        margin-left: 1rem;
+    }
+    
+    #main aside ul > li div a span{
+         font-size: 18px;
+    }
+    .submenu li a {
+        margin-left: 2.3rem;
+        font-size: 18px;
+    }
+    .inputTable {
+         bottom: 20%;
+         right: 18%;
+         left: 18%;
+         top: 25%;
+    }
+    #logout {
+        width: 90vw;
+        min-height: 40vh;
+        border-radius: 10px;
+    }
+    #logout h3{
+        font-size: 16px;
+    }
+    .inputTable h2{
+        margin-top: 1rem;
+        padding-bottom: .5rem;
+    }
+    .inputTable{
+        top: 15%;
+        left: 2%;
+        right: 2%;
+    }
+    form > div:first-child {
+        display: block;
+    }
+    form > div:first-child > div {
+       margin: 1rem !important;
+    }
+    form > div:first-child p{
+        font-size: 16px;
+        font-weight: 550;
+    }
+
+    /* dashboard */
+    .contain .dasdboard:nth-child(2){
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column !important;
+    }
+
+
+    /* Income */
+    #income > div.flex h1{
+        font-size: 18px;
+    }
+    #income > div.flex h2 sub{
+        font-size: 18px;
+    }
+    .tableIncome .inputTable input {
+        padding: 0.4rem;
+        width: 100%;
+        border-radius: 3px;
+    }
+
+ }

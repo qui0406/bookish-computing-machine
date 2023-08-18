@@ -6,44 +6,43 @@
       "password": 123
     },
     {
-      "id": 2,
       "username": "admin",
-      "password": "admin"
+      "password": "admin",
+      "id": 2
+    }
+  ],
+  "income": [
+    {
+      "id": 1,
+      "type": "Tiền lương",
+      "money": "10000000",
+      "note": "Lương tháng 7",
+      "date": "8/7/2023",
+      "time": "4:30PM"
     },
     {
-      "username": "anhqui1213",
-      "password": "123",
-      "id": 3
+      "type": "Lương ",
+      "money": "100000",
+      "note": "2023-08-03",
+      "date": "Tháng 7",
+      "time": "22:50",
+      "id": 12
     },
     {
-      "username": "anhqui0406",
-      "password": "12345",
-      "id": 6
+      "username": "quiqasyha",
+      "password": "123121",
+      "id": 13
     },
     {
-      "username": "qui123456789",
-      "password": "123456789",
-      "id": 7
+      "id": 14
     },
     {
-      "username": "qui1234",
-      "password": "1234",
-      "id": 8
-    },
-    {
-      "username": "qui12345",
-      "password": "1234",
-      "id": 9
-    },
-    {
-      "username": "",
-      "password": "",
-      "id": 10
-    },
-    {
-      "username": "",
-      "password": "",
-      "id": 11
+      "type": "Lương",
+      "money": "10000000",
+      "note": "tháng 8",
+      "date": "7/10/2023",
+      "time": "4:00 PM",
+      "id": 15
     }
   ]
 }
