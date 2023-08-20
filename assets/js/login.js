@@ -35,8 +35,14 @@ function handleLogin(data){
     let check=true
     let uname_login=document.querySelector('#uname_login').value;
     let pw_login=document.querySelector('#pw_login').value;
+    let ok=false;
     data.forEach(item => {
        // warn.classList.remove('warning');
+       
+       if(item.username===''){
+            ok=true;
+            return;  
+       }
         if(item.username==uname_login && item.password==pw_login){
             
             localStorage.setItem("user",item.username);
@@ -47,9 +53,10 @@ function handleLogin(data){
             check=false;
         }
     });
+   
     if(check){
        // warn.classList.add('warning');       
-       alert('Khong chinh xac')
+       alert('Tài khoản hoặc mật khẩu không chính xác')
     }
 }
 

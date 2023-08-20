@@ -1,6 +1,7 @@
 let prevents= document.querySelectorAll('aside ul li a');
 let tmp;
 var tmpEx;
+
 let hea=document.querySelector('nav');
 hea.scrollIntoView(true);
 let asi=document.querySelector('aside');
@@ -44,6 +45,8 @@ window.onscroll=()=>{
     }
 }
 
+let accountUser=document.querySelector('nav > div >div');
+accountUser.innerText=localStorage.getItem('user');
 // hien submenu and change icon
 document.querySelectorAll('#main ul.menu > li').forEach((item, index)=>{
     item.querySelector('div').onclick=()=>{
@@ -83,8 +86,8 @@ let showTaskBar=document.querySelector('nav .showTask_bar');
 const aside1 =document.querySelector('#main aside');
 const allExpense=document.getElementById('expense');
 
+
 if(bodyWitdh.offsetWidth+17<780){
-   
     showTaskBar.onclick=()=>{
         aside1.classList.toggle('none');
     }
@@ -93,4 +96,4 @@ if(bodyWitdh.offsetWidth+17<780){
     }
 }
 
-let edit=document.querySelector('table tbody edit')
+

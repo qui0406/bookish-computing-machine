@@ -62,19 +62,17 @@
                         <i class="fa-solid fa-angle-right"></i>
                     </div>
                     <ul class="submenu">
-                        <li><a href="#"><span>Tài khoản hiện tại</span></a></li>
-                        <li><a href="#"><span>Tài khoản mới</span></a></li>
+                        <li><a href="#"><span>Trong ngày</span></a></li>
+                        <li><a href="#"><span>Trong tuần</span></a></li>
+                        <li><a href="#"><span>Trong tháng</span></a></li>
                     </ul>
                 </li>
                 <li>
                     <div>
                         <a href="#"><i class="fa-sharp fa-solid fa-calculator"></i><span>Báo cáo thống kê</span></a>
-                        <i class="fa-solid fa-angle-right"></i>
+                       
                     </div>
-                    <ul class="submenu">
-                        <li><a href="#"><i class="fa-solid fa-square-root-variable"></i><span>Theo số liệu</span></a></li>
-                        <li><a href="#"><i class="fa-sharp fa-solid fa-chart-simple"></i><span>Theo biểu đồ</span></a></li>
-                    </ul>
+                    
                 </li>
                 <li>
                     <div>
@@ -99,11 +97,14 @@
         <main class="flex">
             <div class="fake_box"></div>
             <div class="contain">
-               
-
                 <!--  Thu nhap -->
                 <div id="income">
                     <div class="status">Thành công<i class="fa-solid fa-check" style="color: #16bd0a;"></i></div>
+                    <label for="sreach">
+                        <input type="text" id="search" placeholder="Tìm kiếm">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </label>
+
                     <div class="flex">
                         <h1>Danh sách khoản thu nhập</h1>
                         <h2><sub></sub></h2>
@@ -155,6 +156,7 @@
                             </form>
                         </div>
                     </div>
+                   <div class="box_table">
                     <table>
                         <thead>
                             <tr>
@@ -176,6 +178,7 @@
                             <th></th>
                         </tfoot>
                     </table>
+                   </div>
                     
                 </div>
 

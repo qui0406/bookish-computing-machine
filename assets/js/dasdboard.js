@@ -6,7 +6,7 @@ let moneyExpenseCurrent=0;
 const target= document.querySelector('#target');
 const accept =document.querySelector('main .target #accept');
 const tmpBox=document.querySelector('main .target #box_temp');
-const choseCoin= document.querySelector('main .target #chose')
+const choseCoin= document.querySelector('main .target #choseMoney')
 // muc  tieu tiet kiem thang nay
 accept.addEventListener('click',()=>{
     if(choseCoin.value=='VND'){

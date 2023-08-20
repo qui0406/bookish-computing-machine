@@ -9,13 +9,11 @@
     box-sizing: border-box;
 }
 body{
-   
+    overflow-x: hidden;
      background-color: #ccc;
     background-image: linear-gradient(to right bottom , var(--primary), var(--secondary)); 
     position: relative;
     font-family: Arial, Helvetica, sans-serif;
-
- 
 }
 
 #sub_nav .img_nav{
@@ -45,6 +43,7 @@ nav {
     cursor: pointer;
     display: none;
 }
+
 .active{
     display: block !important;
 }
@@ -100,6 +99,7 @@ nav h1 {
     margin: auto 0;
     color: #fff;
 }
+
 aside{
     display: none;
     position: fixed;
@@ -300,4 +300,21 @@ main .contain {
      right: 45%;
  
  }
+ @keyframes err {
+    from{
+    outline: unset;    
+    }
+    to{
+        outline: 2px solid #f00;
+    }
+}
+.err{
+    animation: err;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+.search{
+    outline: yellow;
+}
  

@@ -19,10 +19,8 @@
                 <img src="./assets/media/imgs/vi-sao-can-lap-bang-quan-ly-chi-tieu.jpg" alt="">
            </div>
           <div>
-               
                 <img src="/assets/media/imgs/anh1.png" alt="Quan ly chi tieu">
           </div>
-
     </div>
     <nav class="flex space_between">
         <div class="showTask_bar"><i class="fa-solid fa-bars"></i></div>
@@ -33,8 +31,6 @@
         </div>
     </nav>
     <div id="main">
-        
-
         <aside class="animate__animated animate__slideInLeft">
            
             <ul class="menu">
@@ -66,19 +62,16 @@
                         <i class="fa-solid fa-angle-right"></i>
                     </div>
                     <ul class="submenu">
-                        <li><a href="#">Tài khoản hiện tại</a></li>
-                        <li><a href="#">Tài khoản mới</a></li>
+                        <li><a href="#"><span>Trong ngày</span></a></li>
+                        <li><a href="#"><span>Trong tuần</span></a></li>
+                        <li><a href="#"><span>Trong tháng</span></a></li>
                     </ul>
                 </li>
                 <li>
                     <div>
                         <a href="#"><i class="fa-sharp fa-solid fa-calculator"></i><span>Báo cáo thống kê</span></a>
-                        <i class="fa-solid fa-angle-right"></i>
+                        
                     </div>
-                    <ul class="submenu">
-                        <li><a href="#"><i class="fa-solid fa-square-root-variable"></i>Theo số liệu</a></li>
-                        <li><a href="#"><i class="fa-sharp fa-solid fa-chart-simple"></i>Theo biểu đồ</a></li>
-                    </ul>
                 </li>
                 <li>
                     <div>
@@ -105,6 +98,10 @@
                
 
                 <div id="expense">
+                    <label for="sreach">
+                        <input type="text" id="search" placeholder="Tìm kiếm">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </label>
                     <div class="flex">
                         <h1>Danh sách khoản chi tiêu</h1>
                         <h2><sub></sub></h2>
@@ -166,26 +163,28 @@
                             </form>
                         </div>
                     </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>STT</th>
-                                <th>Tên loại thu nhập</th>
-                                <th>Số tiền</th>
-                                <th>Ngày</th>
-                                <th>Chú thích</th>
-                                <th>Giờ</th>
-                                <th>Thao tác</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                           
-                        </tbody>
-                        <tfoot>
-                            <th colspan="2">Tổng:</th>
-                            <th></th>
-                        </tfoot>
-                    </table>
+                    <div class="box_table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Tên loại thu nhập</th>
+                                    <th>Số tiền</th>
+                                    <th>Ngày</th>
+                                    <th>Chú thích</th>
+                                    <th>Giờ</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               
+                            </tbody>
+                            <tfoot>
+                                <th colspan="2">Tổng:</th>
+                                <th></th>
+                            </tfoot>
+                        </table>
+                    </div>
                 </div>
                 <!-- Tiet kiem -->
                 
@@ -215,22 +214,6 @@
         </main>
     </div>
     <footer>
-        <!-- <div class="left">
-            <div id="address">Địa chỉ: 778 Nguyễn Kiệm, Phường 4, Quận Phú Nhuận, Thành phố Hồ Chí Minh, Việt Nam </div>
-            <div id="phone_number">Điện thoại: 0398199619</div>
-            <div id="email">Email: anhqui04062004@gmail.com</div>
-            <div id="website">Website</div>
-        </div>
-        <div class="right">
-            <h2>Danh mục</h2>
-            <ul>
-                <li>Bảng điều khiển</li>
-                <li>Giới thiệu</li>
-                <li>Thông báo</li>
-                <li>Liên hệ</li>
-            </ul>
-        </div> -->
-
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>

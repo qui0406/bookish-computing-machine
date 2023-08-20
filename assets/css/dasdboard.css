@@ -32,7 +32,7 @@
 }
 
 .target{
-    width: 40vw;
+    width: 37vw;
     height: 30vh;
     background-color:#FFC575;
     text-align: center;
@@ -79,7 +79,7 @@
     color: #fff;
 }
 .dasdboard .incomeMoney{
-    width: 35vw;
+    width: 37vw;
     height: 30vh;
     cursor: pointer;
     background-color: #FFC575;
@@ -87,6 +87,7 @@
     justify-content: space-around;
     border-radius: 10px;
 }
+
 .dasdboard .incomeMoney h2{
     margin-top: 2rem;
     color: #fff;
@@ -105,7 +106,6 @@
     padding-top: 3rem;
     color: #fff;
 }
-
 
 .moneyCurrent .grogress {
     position: relative;

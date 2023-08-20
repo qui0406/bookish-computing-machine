@@ -1,12 +1,19 @@
 *{
     margin: 0; padding: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
+:root {
+    --primary: #8a57e9;
+    --secondary: #4c75e6;
+}
+
 body {
     position: relative;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #151429;
-    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    background-image: linear-gradient(to right bottom , var(--primary), var(--secondary));
 }
 .flex {
     display: flex;
@@ -20,7 +27,7 @@ nav {
     background-color: #B31312;
     justify-content: space-between;
     overflow:hidden;
-    background: #151429;
+    background-image: linear-gradient(to right bottom , var(--primary), var(--secondary));
     box-shadow: 3px 3px 3px #000;
     position: fixed;
     top: 0;

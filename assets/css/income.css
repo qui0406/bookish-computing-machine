@@ -1,8 +1,24 @@
+
+
 #income{
     margin-top: 2rem;
-    height: 100%;
+    /* height: 100%; */
     width: 100%;
     position: relative;
+}
+#income >label{
+    margin-top: 5rem;
+    display: block;
+}
+#income > label >input{
+    padding: .3rem 0;
+    width: 25%;
+}
+#search{
+    width: 100%;
+}
+#income label >i {
+    cursor: pointer;
 }
 .status{
     display: none;
@@ -193,6 +209,9 @@ table tr td input:focus{
 #income .next{
     right: 45%;
     
+}
+.box_table{
+    overflow-x: scroll;
 }
 @keyframes err {
     from{

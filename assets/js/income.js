@@ -8,6 +8,28 @@ let indexofIn=[];
 
 
 const apiIncome=`http://localhost:3000/users/${infoUser.id}`;
+
+
+let search =document.getElementById('search');
+let icon_search=document.querySelector('#income > label >i');
+
+fetch(apiIncome)
+    .then(res=>res.json())
+    .then(data=>{
+        icon_search.onclick=()=>{
+            let ok=true;
+           data.income.filter((data1)=>{
+                if(search.value===''){
+                    search.classList.add('err');
+                    return;
+                }
+                if(data1.type.includes(`${search.value}`)){
+                    let tmp=document.querySelector(`.list-id-${data1.id}`);
+                    tmp.classList.add('err');
+                }   
+           })          
+        }
+    })
 function createIncome(data1){
     fetch(apiIncome,{
         method: "GET",
@@ -88,7 +110,6 @@ function createHandleIncome(){
     }
 }
 
-// doc tu file json ra
 let status1=document.querySelector('.status');
 let prev=document.querySelector('#income .prev');
 let next=document.querySelector('#income .next');
@@ -129,8 +150,8 @@ function deleteListincome(id){
    })
 }
 
-//edit
 
+//edit
 function editListIncome(id, data1){
     fetch(apiIncome,{
         method: "GET",
@@ -163,94 +184,82 @@ function editListIncome(id, data1){
    })
 }
 
-    let sumValueIncome=0;
-    let sumTotalIncome=document.querySelector('#income table tfoot th:nth-child(2)');
-   
-
-    let menuAsideIncome= document.querySelectorAll('aside ul.menu > li');
-    menuAsideIncome[0].onclick=()=>{
-        window.location.href="./dasdboard.html";
-    }
-    menuAsideIncome[1].onclick=()=>{
-        window.location.href="./income.html";
-    }
-    // menuAside[2].onclick=()=>{
-    //     window.location.href="./expense.html";
-    // }
-    let seeExpenseIncome=document.querySelector('aside ul.menu > li ul.submenu li:last-child');
-    //let addExpense1=document.querySelector('aside ul.menu > li ul.submenu li:first-child');
-    
-    seeExpenseIncome.onclick=()=>{
-        window.location.href="./expense.html";
-    }
-    menuAsideIncome[4].onclick=()=>{
-        window.location.href="./graph.html";
-    }
+let sumValueIncome=0;
+let sumTotalIncome=document.querySelector('#income table tfoot th:nth-child(2)');
+let menuAsideIncome= document.querySelectorAll('aside ul.menu > li');
+menuAsideIncome[0].onclick=()=>{
+    window.location.href="./dasdboard.html";
+}
+menuAsideIncome[1].onclick=()=>{
+    window.location.href="./income.html";
+}
+let seeExpenseIncome=document.querySelector('aside ul.menu > li ul.submenu li:last-child');
+seeExpenseIncome.onclick=()=>{
+    window.location.href="./expense.html";
+}
+menuAsideIncome[4].onclick=()=>{
+    window.location.href="./graph.html";
+}
     
     
-    function app(){
-        add.addEventListener('click',()=>{
-            tableIncome.classList.remove('hide')
-        })
-        exit1.addEventListener('click',()=>{
-            tableIncome.classList.add('hide');
-        })
-        exit2.addEventListener('click',()=>{
-            tableIncome.classList.add('hide');
-        })
-        
-        createHandleIncome();
-    
-            for(let i=0; i<dataUser.income.length; i++){
-                sumValueIncome+=parseFloat(dataUser.income[i].money);
-            }
-            sumTotalIncome.innerText=`${Intl.NumberFormat().format(sumValueIncome)} VND`
-            const sumMoney=document.querySelector('#income h2 sub');
-            sumMoney.innerHTML=`(Tổng tiền: <span style="color:red";>${Intl.NumberFormat().format(sumValueIncome)} VND</span>)`  
+function app(){
+    add.addEventListener('click',()=>{
+        tableIncome.classList.remove('hide')
+    })
+    exit1.addEventListener('click',()=>{
+        tableIncome.classList.add('hide');
+    })
+    exit2.addEventListener('click',()=>{
+        tableIncome.classList.add('hide');
+    })    
+    createHandleIncome();
+    for(let i=0; i<dataUser.income.length; i++){
+        sumValueIncome+=parseFloat(dataUser.income[i].money);
+    }
+    sumTotalIncome.innerText=`${Intl.NumberFormat().format(sumValueIncome)} VND`
+    const sumMoney=document.querySelector('#income h2 sub');
+    sumMoney.innerHTML=`(Tổng tiền: <span style="color:red";>${Intl.NumberFormat().format(sumValueIncome)} VND</span>)`  
            
-                let length=dataUser.income.length;
-                length = (maxPage*pageNum > length) ? length : maxPage*(pageNum);
-                for(let i= (pageNum-1)*maxPage; i<length ; i++){
-                     table.innerHTML+=`
-                     <tr class="list-id-${dataUser.income[i].id}">
-                         <td>${dataUser.income[i].id}</td>
-                         <td>${dataUser.income[i].type}</td>
-                         <td>${dataUser.income[i].money} VND</td>
-                         <td>${dataUser.income[i].date}</td>
-                         <td>${dataUser.income[i].note}</td>
-                         <td>${dataUser.income[i].time}</td>
-                         <td style="border:none;" class="flex between">
-                         <div onclick="deleteListincome(${dataUser.income[i].id})" class="delete">
-                             Xóa
-                         </div>
-                         <div onclick="editListIncome(${dataUser.income[i].id})" class="edit">
-                             Sửa
-                         </div>
-                     </td>
-                     </tr>
-                 `
-                 indexofIn.push(dataUser.income[i].id);
-                 }
-                 
-                 let editIncome=document.querySelectorAll('#income table tr  .edit');
-                 for(let i=0; i<editIncome.length; i++){
-                  editIncome[i].onclick= function(){
-                      tableIncome.classList.remove('hide');
-                      let saveEdit= document.getElementById('saveIncome');
-                      saveEdit.onclick=()=>{
-                         let getData=document.querySelectorAll('.inputTable form input');
-                         let data1={
-                             type:getData[0].value,
-                             money: getData[1].value,
-                             date: getData[3].value,
-                             note: getData[2].value,
-                             time: getData[4].value
-                          }
-                      editListIncome(indexofIn[i], data1);
-                      }   
-                  }
-                }
-                 status1.classList.add('active');
-            
+    let length=dataUser.income.length;
+    length = (maxPage*pageNum > length) ? length : maxPage*(pageNum);
+    for(let i= (pageNum-1)*maxPage; i<length ; i++){
+        table.innerHTML+=`
+            <tr class="list-id-${dataUser.income[i].id}">
+                <td>${dataUser.income[i].id}</td>
+                <td>${dataUser.income[i].type}</td>
+                <td>${dataUser.income[i].money} VND</td>
+                <td>${dataUser.income[i].date}</td>
+                <td>${dataUser.income[i].note}</td>
+                <td>${dataUser.income[i].time}</td>
+                <td style="border:none;" class="flex between">
+                <div onclick="deleteListincome(${dataUser.income[i].id})" class="delete">Xóa</div>
+                <div onclick="editListIncome(${dataUser.income[i].id})" class="edit">Sửa</div></td>
+            </tr>`
+        indexofIn.push(dataUser.income[i].id);
     }
+    let colorEven = document.querySelectorAll('#main table tr:nth-child(even)');
+    for(let color of colorEven){
+        color.style.backgroundColor='lightgrey';
+    }
+    let editIncome=document.querySelectorAll('#income table tr  .edit');
+    for(let i=0; i<editIncome.length; i++){
+        editIncome[i].onclick= function(){
+            tableIncome.classList.remove('hide');
+            let saveEdit= document.getElementById('saveIncome');
+            saveEdit.onclick=()=>{
+                let getData=document.querySelectorAll('.inputTable form input');
+                let data1={
+                    type:getData[0].value,
+                    money: getData[1].value,
+                    date: getData[3].value,
+                    note: getData[2].value,
+                    time: getData[4].value
+                }
+                editListIncome(indexofIn[i], data1);
+            }   
+        }
+    }            
+}
 
+
+    
