@@ -136,6 +136,20 @@
     .box_opacity{
         transform: translateX(0);
     }
+    #expense > label >input {
+        width: 40%;
+    }
+    #expense > label > i{
+        margin-top: .3rem;
+        margin-left: .5rem;
+    }
+    #income > label >input {
+        width: 40%;
+    }
+    #income > label > i{
+        margin-top: .3rem;
+        margin-left: .5rem;
+    }
     #main aside ul > li div >i{
         display: inline;
     }
@@ -206,6 +220,20 @@
     .submenu li a {
         margin-left: 2.3rem;
         font-size: 18px;
+    }
+    #expense > label >input {
+        width: 50%;
+    }
+    #expense > label > i{
+        margin-top: .3rem;
+        margin-left: .5rem;
+    }
+    #income > label >input {
+        width: 50%;
+    }
+    #income > label > i{
+        margin-top: .3rem;
+        margin-left: .5rem;
     }
     .inputTable {
         bottom: 20%;
@@ -305,6 +333,20 @@
     }
     #expense >div >h1{
         font-size: 22px;
+    }
+    #expense > label >input {
+        width: 60%;
+    }
+    #expense > label > i{
+        margin-top: .3rem;
+        margin-left: .5rem;
+    }
+    #income > label >input {
+        width: 60%;
+    }
+    #income > label > i{
+        margin-top: .3rem;
+        margin-left: .5rem;
     }
     nav .user_src > div{
         display: none;

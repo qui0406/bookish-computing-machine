@@ -4,16 +4,7 @@
       "id": 1,
       "username": "qui123",
       "password": 123,
-      "income": [
-        {
-          "type": "Lương",
-          "money": "10000000",
-          "date": "2023-08-21",
-          "note": "asd",
-          "time": "09:41",
-          "id": 1
-        }
-      ],
+      "income": [],
       "expense": [
         {
           "type": "Ăn uống",

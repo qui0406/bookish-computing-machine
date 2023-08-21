@@ -21,8 +21,6 @@ accept.addEventListener('click',()=>{
     choseCoin.style.display='none'
 })
 
-
-
 let changeTarget=document.querySelector('main .target .icon_main');
 changeTarget.addEventListener('click', ()=>{
     target.style.display='flex';
@@ -38,9 +36,7 @@ menuAsideDasdboard[0].onclick=()=>{
 menuAsideDasdboard[1].onclick=()=>{
     window.location.href="./income.html";
 }
-// menuAside[2].onclick=()=>{
-//     window.location.href="./expense.html";
-// }
+
 let seeExpenseDasdboard=document.querySelector('aside ul.menu > li ul.submenu li:last-child');
 let addExpense1=document.querySelector('aside ul.menu > li ul.submenu li:first-child');
 
@@ -50,7 +46,6 @@ seeExpenseDasdboard.onclick=()=>{
 menuAsideDasdboard[4].onclick=()=>{
     window.location.href="./graph.html";
 }
-
 
 function sumExpenseDay(){
     let sumEatDay=0;
@@ -230,76 +225,74 @@ function sumExpenseMonth(){
   let sumofMonth=0;
   let arrMonth=[];  
          
-      let data=dataUser.expense  
-      let d= new Date();
-      let minisecFrom1970=d.getTime();
-      let hours=d.getHours();
-      let minutes=d.getMinutes();
-      let thu=d.getDay();
-      let miliseconds=d.getMilliseconds();
-      let seconds=d.getSeconds();
-      let manyDate=d.getDate();
-      let addMilisecondInWeek=(thu===0)?6*86400000:(thu-1)*86400000;
+  let data=dataUser.expense  
+  let d= new Date();
+  let minisecFrom1970=d.getTime();
+  let hours=d.getHours();
+  let minutes=d.getMinutes();
+  let thu=d.getDay();
+  let miliseconds=d.getMilliseconds();
+  let seconds=d.getSeconds();
+  let manyDate=d.getDate();
 
-      let minisecondWeeks=Math.floor(manyDate/7)*604800000;
-      let sumMilisecondInDay=hours*60*60*1000+ minutes*60*1000 + seconds*1000+ miliseconds;
-      let sumMilisecondInWeek=addMilisecondInWeek+sumMilisecondInDay;
-      let sumMilisecondInMonth=minisecondWeeks+sumMilisecondInDay;
-      for(let i=0; i<data.length; i++){ 
-        let year=parseFloat(data[i].date.slice(0, 4));
-        let month=parseFloat(data[i].date.slice(5, 7)-1);
-        let date=parseFloat(data[i].date.slice(8, 10));
-        let hour=parseFloat(data[i].time.slice(0,2));
-        let minute=parseFloat(data[i].time.slice(3, 5));
-        let s=new Date(year, month, date, hour, minute);
-        let currrentTimeInput=s.getTime();
-  
-        
-        let
-         limestoneTimeMonth=minisecFrom1970-sumMilisecondInMonth;
-        if(currrentTimeInput>=limestoneTimeMonth && currrentTimeInput< limestoneTimeMonth +86400000*30 && data[i].type=='Ăn uống'){
-          sumEatMonth+=parseFloat(data[i].money);
-        }
-        else if(currrentTimeInput>=limestoneTimeMonth && currrentTimeInput<limestoneTimeMonth+ 86400000*30 && data[i].type=='Giải trí'){
-          sumEntertaimentMonth+=parseFloat(data[i].money);
-        }
-        else if(currrentTimeInput>=limestoneTimeMonth && currrentTimeInput<limestoneTimeMonth+ 86400000*30 && data[i].type=='Học tập'){
-          sumStudyMonth+=parseFloat(data[i].money);
-        }
-        else if(currrentTimeInput>=limestoneTimeMonth && currrentTimeInput<limestoneTimeMonth+ 86400000*30 && data[i].type=='Mua sắm'){
-          sumBuyMonth+=parseFloat(data[i].money);
-        }
-        else if(currrentTimeInput>=limestoneTimeMonth && currrentTimeInput<limestoneTimeMonth+ 86400000*30 && data[i].type=='Sức khỏe'){
-          sumHealthMonth+=parseFloat(data[i].money);
-        }
-        else if(currrentTimeInput>=limestoneTimeMonth && currrentTimeInput<limestoneTimeMonth+ 86400000*30 && data[i].type=='Sinh hoạt'){
-          sumLivingMonth+=parseFloat(data[i].money);
-        }
-        else if(currrentTimeInput>=limestoneTimeMonth && currrentTimeInput<limestoneTimeMonth+ 86400000*30 && data[i].type=='Di chuyển'){
-          sumTravelMonth+=parseFloat(data[i].money);
-        }
-        else if(currrentTimeInput>=limestoneTimeMonth && currrentTimeInput<limestoneTimeMonth+ 86400000*30 && data[i].type!='Học tập' && data[i].type!='Ăn uống' && data[i].type!='Giải trí' && data[i].type!='Mua sắm' && data[i].type!='Sức khỏe' && data[i].type!='Sinh hoạt' && data[i].type!='Di chuyển'){
-          sumOtherMonth+=parseFloat(data[i].money);
-        } 
-      }
-      arrMonth.push(sumEatMonth);
-      arrMonth.push(sumEntertaimentMonth);
-      arrMonth.push(sumStudyMonth);
-      arrMonth.push(sumBuyMonth);
-      arrMonth.push(sumHealthMonth);
-      arrMonth.push(sumLivingMonth);
-      arrMonth.push(sumTravelMonth);
-      arrMonth.push(sumOtherMonth);
-      for(let a of arrMonth){
-        sumofMonth+=a;
-      }
-      let expenseSumMonth=document.querySelector('main .dasdboard .box_expense:last-child h3:last-child');
-      expenseSumMonth.innerHTML=`${Intl.NumberFormat().format(sumofMonth)} VND` ;
-
-     
+  let addMilisecondInWeek=(thu===0)?6*86400000:(thu-1)*86400000;
+  let minisecondWeeks=Math.floor(manyDate/7)*604800000;
+  let sumMilisecondInDay=hours*60*60*1000+ minutes*60*1000 + seconds*1000+ miliseconds;
+  let sumMilisecondInWeek=addMilisecondInWeek+sumMilisecondInDay;
+  let sumMilisecondInMonth=minisecondWeeks+sumMilisecondInDay;
       
+  for(let i=0; i<data.length; i++){ 
+    let year=parseFloat(data[i].date.slice(0, 4));
+    let month=parseFloat(data[i].date.slice(5, 7)-1);
+    let date=parseFloat(data[i].date.slice(8, 10));
+    let hour=parseFloat(data[i].time.slice(0,2));
+    let minute=parseFloat(data[i].time.slice(3, 5));
+    let s=new Date(year, month, date, hour, minute);
+    let currrentTimeInput=s.getTime();
+    let limestoneTimeMonth=minisecFrom1970-sumMilisecondInMonth;
 
-    }
+    if(currrentTimeInput>=limestoneTimeMonth && currrentTimeInput< limestoneTimeMonth +86400000*30){
+      if( data[i].type=='Ăn uống'){
+        sumEatMonth+=parseFloat(data[i].money);
+      }
+      else if(data[i].type=='Giải trí'){
+        sumEntertaimentMonth+=parseFloat(data[i].money);
+      }
+      else if(data[i].type=='Học tập'){
+        sumStudyMonth+=parseFloat(data[i].money);
+      }
+      else if(data[i].type=='Mua sắm'){
+        sumBuyMonth+=parseFloat(data[i].money);
+      }
+      else if(data[i].type=='Sức khỏe'){
+        sumHealthMonth+=parseFloat(data[i].money);
+      }
+      else if(data[i].type=='Sinh hoạt'){
+        sumLivingMonth+=parseFloat(data[i].money);
+      }
+      else if(data[i].type=='Di chuyển'){
+        sumTravelMonth+=parseFloat(data[i].money);
+      }
+      else if(data[i].type!='Học tập' && data[i].type!='Ăn uống' && data[i].type!='Giải trí' && data[i].type!='Mua sắm' && data[i].type!='Sức khỏe' && data[i].type!='Sinh hoạt' && data[i].type!='Di chuyển'){
+        sumOtherMonth+=parseFloat(data[i].money);
+      } 
+    }      
+  }
+  arrMonth.push(sumEatMonth);
+  arrMonth.push(sumEntertaimentMonth);
+  arrMonth.push(sumStudyMonth);
+  arrMonth.push(sumBuyMonth);
+  arrMonth.push(sumHealthMonth);
+  arrMonth.push(sumLivingMonth);
+  arrMonth.push(sumTravelMonth);
+  arrMonth.push(sumOtherMonth);
+  for(let a of arrMonth){
+    sumofMonth+=a;
+  }
+  let expenseSumMonth=document.querySelector('main .dasdboard .box_expense:last-child h3:last-child');
+  expenseSumMonth.innerHTML=`${Intl.NumberFormat().format(sumofMonth)} VND` ;
+
+}
 
 function sumIncomeMonth(){
     let sumofIncome=0;
@@ -323,79 +316,79 @@ function progessingMoney(){
   let sumofMonth=0;
   let arrMonth=[];  
          
-      let data=dataUser.expense  
-      let d= new Date();
-      let minisecFrom1970=d.getTime();
-      let hours=d.getHours();
-      let minutes=d.getMinutes();
-      let thu=d.getDay();
-      let miliseconds=d.getMilliseconds();
-      let seconds=d.getSeconds();
-      let manyDate=d.getDate();
-      let addMilisecondInWeek=(thu===0)?6*86400000:(thu-1)*86400000;
-      let minisecondWeeks=Math.floor(manyDate/7)*604800000;
-      let sumMilisecondInDay=hours*60*60*1000+ minutes*60*1000 + seconds*1000+ miliseconds;
-      let sumMilisecondInWeek=addMilisecondInWeek+sumMilisecondInDay;
-      let sumMilisecondInMonth=minisecondWeeks+sumMilisecondInDay;
-      for(let i=0; i<data.length; i++){ 
-        let year=parseFloat(data[i].date.slice(0, 4));
-        let month=parseFloat(data[i].date.slice(5, 7)-1);
-        let date=parseFloat(data[i].date.slice(8, 10));
-        let hour=parseFloat(data[i].time.slice(0,2));
-        let minute=parseFloat(data[i].time.slice(3, 5));
-        let s=new Date(year, month, date, hour, minute);
-        let currrentTimeInput=s.getTime();
-  
-        
-        let
-         limestoneTimeMonth=minisecFrom1970-sumMilisecondInMonth;
-        if(currrentTimeInput>=limestoneTimeMonth && currrentTimeInput< limestoneTimeMonth +86400000*30 && data[i].type=='Ăn uống'){
-          sumEatMonth+=parseFloat(data[i].money);
-        }
-        else if(currrentTimeInput>=limestoneTimeMonth && currrentTimeInput<limestoneTimeMonth+ 86400000*30 && data[i].type=='Giải trí'){
-          sumEntertaimentMonth+=parseFloat(data[i].money);
-        }
-        else if(currrentTimeInput>=limestoneTimeMonth && currrentTimeInput<limestoneTimeMonth+ 86400000*30 && data[i].type=='Học tập'){
-          sumStudyMonth+=parseFloat(data[i].money);
-        }
-        else if(currrentTimeInput>=limestoneTimeMonth && currrentTimeInput<limestoneTimeMonth+ 86400000*30 && data[i].type=='Mua sắm'){
-          sumBuyMonth+=parseFloat(data[i].money);
-        }
-        else if(currrentTimeInput>=limestoneTimeMonth && currrentTimeInput<limestoneTimeMonth+ 86400000*30 && data[i].type=='Sức khỏe'){
-          sumHealthMonth+=parseFloat(data[i].money);
-        }
-        else if(currrentTimeInput>=limestoneTimeMonth && currrentTimeInput<limestoneTimeMonth+ 86400000*30 && data[i].type=='Sinh hoạt'){
-          sumLivingMonth+=parseFloat(data[i].money);
-        }
-        else if(currrentTimeInput>=limestoneTimeMonth && currrentTimeInput<limestoneTimeMonth+ 86400000*30 && data[i].type=='Di chuyển'){
-          sumTravelMonth+=parseFloat(data[i].money);
-        }
-        else if(currrentTimeInput>=limestoneTimeMonth && currrentTimeInput<limestoneTimeMonth+ 86400000*30 && data[i].type!='Học tập' && data[i].type!='Ăn uống' && data[i].type!='Giải trí' && data[i].type!='Mua sắm' && data[i].type!='Sức khỏe' && data[i].type!='Sinh hoạt' && data[i].type!='Di chuyển'){
-          sumOtherMonth+=parseFloat(data[i].money);
-        } 
+  let data=dataUser.expense  
+  let d= new Date();
+  let minisecFrom1970=d.getTime();
+  let hours=d.getHours();
+  let minutes=d.getMinutes();
+  let thu=d.getDay();
+  let miliseconds=d.getMilliseconds();
+  let seconds=d.getSeconds();
+  let manyDate=d.getDate();
+  let addMilisecondInWeek=(thu===0)?6*86400000:(thu-1)*86400000;
+  let minisecondWeeks=Math.floor(manyDate/7)*604800000;
+  let sumMilisecondInDay=hours*60*60*1000+ minutes*60*1000 + seconds*1000+ miliseconds;
+  let sumMilisecondInWeek=addMilisecondInWeek+sumMilisecondInDay;
+  let sumMilisecondInMonth=minisecondWeeks+sumMilisecondInDay;
+
+  for(let i=0; i<data.length; i++){ 
+    let year=parseFloat(data[i].date.slice(0, 4));
+    let month=parseFloat(data[i].date.slice(5, 7)-1);
+    let date=parseFloat(data[i].date.slice(8, 10));
+    let hour=parseFloat(data[i].time.slice(0,2));
+    let minute=parseFloat(data[i].time.slice(3, 5));
+    let s=new Date(year, month, date, hour, minute);
+    let currrentTimeInput=s.getTime();
+    let    limestoneTimeMonth=minisecFrom1970-sumMilisecondInMonth;
+    if(currrentTimeInput>=limestoneTimeMonth && currrentTimeInput<limestoneTimeMonth+ 86400000*30){
+      if( data[i].type=='Ăn uống'){
+        sumEatMonth+=parseFloat(data[i].money);
       }
-      arrMonth.push(sumEatMonth);
-      arrMonth.push(sumEntertaimentMonth);
-      arrMonth.push(sumStudyMonth);
-      arrMonth.push(sumBuyMonth);
-      arrMonth.push(sumHealthMonth);
-      arrMonth.push(sumLivingMonth);
-      arrMonth.push(sumTravelMonth);
-      arrMonth.push(sumOtherMonth);
-      for(let a of arrMonth){
-        sumofMonth+=a;
+      else if(data[i].type=='Giải trí'){
+        sumEntertaimentMonth+=parseFloat(data[i].money);
       }
-      let targetMoney=document.getElementById('target');
-      let acpt=document.getElementById('accept');
-      let percentcurrentMoney=document.querySelector('.moneyCurrent .percent > h2');
-      let taskgrogress=document.querySelector('.moneyCurrent .grogresses .grogressing');
-      let addCurrentMoney=document.querySelector('.moneyCurrent .addCurrentMoney');
-      addCurrentMoney.innerText=`${Intl.NumberFormat().format(sumofMonth)} VND`
-      acpt.onclick=function(){
-        percentcurrentMoney.innerHTML=`${(sumofMonth*100/parseFloat(targetMoney.value)).toFixed(2)} %`
-        taskgrogress.style.width=`${(sumofMonth*100/parseFloat(targetMoney.value)).toFixed(2)}%`
+      else if(data[i].type=='Học tập'){
+        sumStudyMonth+=parseFloat(data[i].money);
       }
+      else if(data[i].type=='Mua sắm'){
+        sumBuyMonth+=parseFloat(data[i].money);
+      }
+      else if(data[i].type=='Sức khỏe'){
+        sumHealthMonth+=parseFloat(data[i].money);
+      }
+      else if(data[i].type=='Sinh hoạt'){
+        sumLivingMonth+=parseFloat(data[i].money);
+      }
+      else if(data[i].type=='Di chuyển'){
+        sumTravelMonth+=parseFloat(data[i].money);
+      }
+      else if(data[i].type!='Học tập' && data[i].type!='Ăn uống' && data[i].type!='Giải trí' && data[i].type!='Mua sắm' && data[i].type!='Sức khỏe' && data[i].type!='Sinh hoạt' && data[i].type!='Di chuyển'){
+        sumOtherMonth+=parseFloat(data[i].money);
+      } 
     }
+  }
+  arrMonth.push(sumEatMonth);
+  arrMonth.push(sumEntertaimentMonth);
+  arrMonth.push(sumStudyMonth);
+  arrMonth.push(sumBuyMonth);
+  arrMonth.push(sumHealthMonth);
+  arrMonth.push(sumLivingMonth);
+  arrMonth.push(sumTravelMonth);
+  arrMonth.push(sumOtherMonth);
+  for(let a of arrMonth){
+    sumofMonth+=a;
+  }
+  let targetMoney=document.getElementById('target');
+  let acpt=document.getElementById('accept');
+  let percentcurrentMoney=document.querySelector('.moneyCurrent .percent > h2');
+  let taskgrogress=document.querySelector('.moneyCurrent .grogresses .grogressing');
+  let addCurrentMoney=document.querySelector('.moneyCurrent .addCurrentMoney');
+  addCurrentMoney.innerText=`${Intl.NumberFormat().format(sumofMonth)} VND`
+  acpt.onclick=function(){
+    percentcurrentMoney.innerHTML=`${(sumofMonth*100/parseFloat(targetMoney.value)).toFixed(2)} %`
+    taskgrogress.style.width=`${(sumofMonth*100/parseFloat(targetMoney.value)).toFixed(2)}%`
+  }      
+}
 
 function app(){
     sumExpenseDay();

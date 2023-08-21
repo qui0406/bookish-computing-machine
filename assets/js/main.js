@@ -59,7 +59,6 @@ if(document.getElementById('main').offsetWidth>800){
             main.style.marginTop=`${nav.offsetHeight}px`;
             asideMenu.classList.remove('animate__slideOutLeft');
             asideMenu.classList.add('animate__slideInLeft');
-            
         }
         else{
             main.style.marginTop=0;
@@ -68,7 +67,6 @@ if(document.getElementById('main').offsetWidth>800){
             asideMenu.classList.add('animate__slideOutLeft');
         }
     }
-    
 }
 else{
     window.onscroll=()=>{
@@ -122,5 +120,4 @@ exitLogout.onclick=()=>{
 }
 
 
-// Responsive
 
