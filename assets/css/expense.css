@@ -221,3 +221,9 @@ table tr td input:focus{
     overflow-x: scroll;
 }
 
+.delete:hover {
+    outline: 2px solid #000;
+}
+.edit:hover{
+    outline: 2px solid #000;
+}

@@ -1,4 +1,4 @@
-let apiUser= 'http://localhost:3000/users';
+let apiUser= 'https://64e3388cbac46e480e786991.mockapi.io/stogares';
 
 const loginBtn = document.querySelector('#login-btn');
 loginBtn.addEventListener('click', async ()=>{

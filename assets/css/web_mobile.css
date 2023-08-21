@@ -13,7 +13,6 @@
     }
     .box_opacity{
         transform: translateX(150rem);
-        
     }
     main .fake_box {
         width: 20%;
@@ -43,6 +42,20 @@
     .box_opacity{
         transform: translateX(150rem);
         
+    }
+    #expense > label >input {
+        width: 40%;
+    }
+    #expense > label > i{
+        margin-top: .3rem;
+        margin-left: .5rem;
+    }
+    #income > label >input {
+        width: 40%;
+    }
+    #income > label > i{
+        margin-top: .3rem;
+        margin-left: .5rem;
     }
     #main{
         height: 150vh;

@@ -6,8 +6,40 @@ const exit2=document.querySelector('.tableIncome .inputTable form input#closeInc
 
 let indexofIn=[];
 
+let searchIncome =document.getElementById('search');
+let icon_searchIncome=document.querySelector('#income > label i');
 
-const apiIncome=`http://localhost:3000/users/${infoUser.id}`;
+function searchIn(){
+    for(let i=0; i<dataUser.income.length; i++){
+        icon_searchIncome.onclick=()=>{
+           
+            let ok=true;
+            let check=true;
+            dataUser.income.filter((data1)=>{
+                if(searchIncome.value===''){
+                    searchIncome.classList.add('err');
+                    ok=false;
+                    return;
+                }
+                if(data1.type.includes(`${search.value}`)){
+                    let tmp=document.querySelector(`.list-id-${data1.id}`);
+                    tmp.classList.add('err');
+                    check=false;
+                }   
+           })
+           if(!ok){
+                alert("Chưa nhập thông tin tìm kiếm!");
+           }        
+           if(check){
+            alert("Không tìm thấy thông tin!");
+           }
+        }
+    }
+}
+        
+
+
+const apiIncome=`https://64e3388cbac46e480e786991.mockapi.io/stogares/${infoUser.id}`;
 
 
 let search =document.getElementById('search');
@@ -48,7 +80,6 @@ function createIncome(data1){
             id=data.income[data.income.length-1].id+1;
         }
         data1.id=id;
-        console.log(id);
         data.income.push(data1);
         fetch(apiIncome,{
             method: "PUT",
@@ -56,10 +87,15 @@ function createIncome(data1){
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(data),
-
         })
-        .then(res=>res.json())
+        .then(async res=>{
+            await checklogin();
+            display(dataUser);
+            tableIncome.classList.add('hide');
+            res.json()
+        })
     })
+
 }
 function createHandleIncome(){
     let infors=document.querySelectorAll('.tableIncome .inputTable input');
@@ -107,6 +143,7 @@ function createHandleIncome(){
             infors[4].classList.remove('err');
         }
         createIncome(income);
+        
     }
 }
 
@@ -119,7 +156,6 @@ let maxPage = 10
 
 let table=document.querySelector('#income table tbody');
 
-status1.classList.remove('active');
 //delete
 function deleteListincome(id){
     fetch(apiIncome,{
@@ -141,9 +177,13 @@ function deleteListincome(id){
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify(data),
-
                 })
-                .then(res=>res.json())
+                .then(async res=>{
+                    await checklogin();
+                    display(dataUser);
+                
+                    res.json()
+                })
                 break;
             }
         }
@@ -163,7 +203,6 @@ function editListIncome(id, data1){
    .then(res=>res.json())
    .then(data=>{
         let income=data.income;
-      
         for(let i=0; i<income.length; i++){
             if(income[i].id===id){
                 let id=income[i].id;
@@ -177,7 +216,13 @@ function editListIncome(id, data1){
                     body: JSON.stringify(data),
 
                 })
-                .then(res=>res.json())
+                .then(async res=>{
+                    await checklogin();
+                    display(dataUser);
+                    tableIncome.classList.add('hide');
+                    res.json()
+                }
+                    )
                 break;
             }
         }
@@ -200,19 +245,9 @@ seeExpenseIncome.onclick=()=>{
 menuAsideIncome[4].onclick=()=>{
     window.location.href="./graph.html";
 }
-    
-    
-function app(){
-    add.addEventListener('click',()=>{
-        tableIncome.classList.remove('hide')
-    })
-    exit1.addEventListener('click',()=>{
-        tableIncome.classList.add('hide');
-    })
-    exit2.addEventListener('click',()=>{
-        tableIncome.classList.add('hide');
-    })    
-    createHandleIncome();
+
+function display(dataUser){
+    sumValueIncome=0;
     for(let i=0; i<dataUser.income.length; i++){
         sumValueIncome+=parseFloat(dataUser.income[i].money);
     }
@@ -222,6 +257,7 @@ function app(){
            
     let length=dataUser.income.length;
     length = (maxPage*pageNum > length) ? length : maxPage*(pageNum);
+    table.innerHTML='';
     for(let i= (pageNum-1)*maxPage; i<length ; i++){
         table.innerHTML+=`
             <tr class="list-id-${dataUser.income[i].id}">
@@ -237,10 +273,8 @@ function app(){
             </tr>`
         indexofIn.push(dataUser.income[i].id);
     }
-    let colorEven = document.querySelectorAll('#main table tr:nth-child(even)');
-    for(let color of colorEven){
-        color.style.backgroundColor='lightgrey';
-    }
+
+
     let editIncome=document.querySelectorAll('#income table tr  .edit');
     for(let i=0; i<editIncome.length; i++){
         editIncome[i].onclick= function(){
@@ -258,7 +292,28 @@ function app(){
                 editListIncome(indexofIn[i], data1);
             }   
         }
-    }            
+    }           
+}
+    
+function app(){
+    add.addEventListener('click',()=>{
+        tableIncome.classList.remove('hide')
+    })
+    exit1.addEventListener('click',()=>{
+        tableIncome.classList.add('hide');
+    })
+    exit2.addEventListener('click',()=>{
+        tableIncome.classList.add('hide');
+    })    
+
+    createHandleIncome();
+    display(dataUser);
+    searchIn()
+    let colorEven = document.querySelectorAll('#main table tr:nth-child(even)');
+    for(let color of colorEven){
+        color.style.backgroundColor='lightgrey';
+    }
+     
 }
 
 

@@ -35,6 +35,7 @@ for(let prevent of prevents){
 
 const grogress=document.querySelector('main .grogress');
 let grogress_icon=document.querySelector('main .grogress i');
+
 function loadTimeOut(){
     grogress.classList.add('active');
     grogress_icon.classList.add('active');
@@ -42,7 +43,8 @@ function loadTimeOut(){
     setTimeout(()=>{
         grogress.classList.remove('active');
         grogress_icon.classList.remove('active');
-        window.location='/trangBia.html';
+        localStorage.clear();
+        window.location='./trangBia.html';
     }, 2000);
 }
 
@@ -84,7 +86,9 @@ else{
     }
 }
 
-
+// function hover(){
+//     style.backgroundColor='green';
+// }
 
 let accountUser=document.querySelector('nav > div >div');
 accountUser.innerText=localStorage.getItem('user');
@@ -98,6 +102,7 @@ document.querySelectorAll('#main ul.menu > li').forEach((item, index)=>{
         changeIcon.classList.toggle('fa-angle-down')
     }
 })
+
 
 // logout
 const btnLogout= document.querySelector('.menu li .logout');

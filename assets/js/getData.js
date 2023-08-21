@@ -1,6 +1,6 @@
 let dataUser;
 async function checklogin(){
-    await fetch('http://localhost:3000/users').then(res=>res.json()).then(data=>{
+    await fetch('https://64e3388cbac46e480e786991.mockapi.io/stogares').then(res=>res.json()).then(data=>{
         let user=localStorage.getItem("user");
         let ok=false;
         for(let i of data){

@@ -1,5 +1,7 @@
 let tmpEx2;
 let indexofEx=[];
+var sumValueExpense=0;
+let sumTotalExpense=document.querySelector('#expense table tfoot th:nth-child(2)');
 
 // chi tieu
 const addExpense=document.querySelector('#main aside li:nth-child(3) ul.submenu li:first-child');
@@ -10,30 +12,41 @@ const tableExpense=document.querySelector('#expense .tableExpense');
 const exitExpense1=document.querySelector('.tableExpense .inputTable > a');
 const exitExpense2=document.querySelector('#expense .tableExpense form input#closeExpense');
 
-const apiExpense=`http://localhost:3000/users/${infoUser.id}`;
+const apiExpense=`https://64e3388cbac46e480e786991.mockapi.io/stogares/${infoUser.id}`;
 
 let search =document.getElementById('search');
-let icon_search=document.querySelector('#expense > label >i');
+let icon_search=document.querySelector('#expense > label i');
 
-fetch(apiExpense)
-    .then(res=>res.json())
-    .then(data=>{
+function searchEx(){
+    for(let i=0; i<dataUser.expense.length; i++){
         icon_search.onclick=()=>{
+           
             let ok=true;
-           data.expense.filter((data1)=>{
+            let check=true;
+           dataUser.expense.filter((data1)=>{
                 if(search.value===''){
                     search.classList.add('err');
+                    ok=false;
                     return;
                 }
                 if(data1.type.includes(`${search.value}`)){
                     let tmp=document.querySelector(`.list-id-${data1.id}`);
                     tmp.classList.add('err');
+                    check=false;
                 }   
-           })          
+           })
+           if(!ok){
+                alert("Chưa nhập thông tin tìm kiếm!");
+           }        
+           if(check){
+            alert("Không tìm thấy thông tin!");
+           }
         }
-    })
+    }
+}
+        
 
-function createExpense(data1, callback){
+function createExpense(data1){
     fetch(apiExpense,{
         method: "GET",
         headers: {
@@ -59,7 +72,12 @@ function createExpense(data1, callback){
             },
             body: JSON.stringify(data),
             })
-            .then(res=>res.json())
+            .then(async res=>{
+                await checklogin();
+                displayEx(dataUser);
+                tableExpense.classList.add('hide');
+                res.json();
+            })
         }
    )
 }
@@ -124,108 +142,34 @@ function createHandleExpense(){
     }
 }
 let tableEx=document.querySelector('#expense table tbody');
-function deleteListExpense(id){
-   fetch(apiExpense,{
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-        }
-   })
-   .then(res=>res.json())
-   .then(data=>{
-        let expense=data.expense;
-        for(let i=0; i<expense.length; i++){
-            if(expense[i].id===id){
-                data.expense.splice(i, 1);
-                fetch(apiExpense,{
-                    method: "PUT",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(data),
 
-                })
-                .then(res=>res.json())
-                break;
-            }
-        }
-   })
-}
-
-//edit
-
-function editListExpense(id, data1, callback){
-    fetch(apiExpense,{
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-        }
-   })
-   .then(res=>res.json())
-   .then(data=>{
-        let expense=data.expense;
-        for(let i=0; i<expense.length; i++){
-            if(expense[i].id===id){
-                let id=expense[i].id;
-                data1.id=id;
-                data.expense[i]=data1;
-                fetch(apiExpense,{
-                    method: "PUT",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(data),
-                })
-                .then(res=>res.json())
-                break;
-            }
-        }
-   })
-}
-
-// ket qua
-var sumValueExpense=0;
-let sumTotalExpense=document.querySelector('#expense table tfoot th:nth-child(2)');
-// inner dasdboard
-
-function app(){
-    addExpense.addEventListener('click',()=>{
-        tableExpense.classList.remove('hide')
-    });
-    addExpense2.addEventListener('click',()=>{
-        tableExpense.classList.remove('hide')
-    }); 
-    exitExpense1.addEventListener('click',()=>{
-        tableExpense.classList.add('hide');
-    })
-    exitExpense2.addEventListener('click',()=>{
-        tableExpense.classList.add('hide');
-    })
-    createHandleExpense();
-    fetch(apiExpense).then((res)=>res.json()).then((data)=>{
-        let length=data.expense.length;
-        for(let i=0; i<length; i++){
-            tableEx.innerHTML+=`
-            <tr class="list-id-${data.expense[i].id}">
-                <td>${data.expense[i].id}</td>
-                <td>${data.expense[i].type}</td>
-                <td>${data.expense[i].money} VND</td>
-                <td>${data.expense[i].date}</td>
-                <td>${data.expense[i].note}</td>
-                <td>${data.expense[i].time}</td>
-                <td style="border:none;" class="flex between">
-                <div onclick="deleteListExpense(${data.expense[i].id})" class="delete">Xóa</div>
-                <div onclick="editListExpense(${data.expense[i].id})" class="edit">Sửa</div>
-            </td>
-            </tr>`
-            indexofEx.push(data.expense[i].id);
-        }
-    let colorEven = document.querySelectorAll('#main table tr:nth-child(even)');
-    for(let color of colorEven){
-         color.style.backgroundColor='lightgrey';
+function displayEx(dataUser){
+    sumValueExpense=0;
+    for(let i=0; i<dataUser.expense.length; i++){
+        sumValueExpense+=parseFloat(dataUser.expense[i].money);
     }
+    sumTotalExpense.innerText=`${sumValueExpense} VND`
+    const sumMoneyExpense=document.querySelector('#expense h2 sub');
+    sumMoneyExpense.innerHTML=`(Tổng tiền: <span style="color:red";>${Intl.NumberFormat().format(sumValueExpense)} VND</span>)`
+    let length=dataUser.expense.length;
+    tableEx.innerHTML='';
+    for(let i=0; i<length; i++){
+        tableEx.innerHTML+=`
+        <tr class="list-id-${dataUser.expense[i].id}">
+            <td>${dataUser.expense[i].id}</td>
+            <td>${dataUser.expense[i].type}</td>
+            <td>${dataUser.expense[i].money} VND</td>
+            <td>${dataUser.expense[i].date}</td>
+            <td>${dataUser.expense[i].note}</td>
+            <td>${dataUser.expense[i].time}</td>
+            <td style="border:none;" class="flex between">
+            <div onclick="deleteListExpense(${dataUser.expense[i].id})" class="delete">Xóa</div>
+            <div onclick="editListExpense(${dataUser.expense[i].id})" class="edit">Sửa</div>
+        </td>
+        </tr>`
+        indexofEx.push(dataUser.expense[i].id);
+    }
+
     let editExpense=document.querySelectorAll('#expense table tr td .edit');
     for(let i=0; i<editExpense.length; i++){
         editExpense[i].onclick= function(){
@@ -261,16 +205,112 @@ function app(){
             }
         }
     }  
-})
 
-fetch(apiExpense).then((res)=>res.json()).then((data)=>{
-    for(let i=0; i<data.expense.length; i++){
-        sumValueExpense+=parseFloat(data.expense[i].money);
+        
+}
+function deleteListExpense(id){
+   fetch(apiExpense,{
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        }
+   })
+   .then(res=>res.json())
+   .then(data=>{
+        let expense=data.expense;
+        for(let i=0; i<expense.length; i++){
+            if(expense[i].id===id){
+                data.expense.splice(i, 1);
+                fetch(apiExpense,{
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+
+                })
+                .then(async res=>{
+                    await checklogin();
+                    displayEx(dataUser);
+                    tableExpense.classList.add('hide');
+                    res.json()
+                
+                })
+                break;
+            }
+        }
+   })
+}
+
+//edit
+
+function editListExpense(id, data1, callback){
+    fetch(apiExpense,{
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        }
+   })
+   .then(res=>res.json())
+   .then(data=>{
+        let expense=data.expense;
+        for(let i=0; i<expense.length; i++){
+            if(expense[i].id===id){
+                let id=expense[i].id;
+                data1.id=id;
+                data.expense[i]=data1;
+                fetch(apiExpense,{
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                })
+                .then(async res=>{
+                    await checklogin();
+                    displayEx(dataUser);
+                    tableExpense.classList.add('hide');
+                    
+                    res.json()
+                    
+                
+                })
+                break;
+            }
+        }
+   })
+}
+
+// ket qua
+
+// inner dasdboard
+
+function app(){
+    addExpense.addEventListener('click',()=>{
+        tableExpense.classList.remove('hide')
+    });
+    addExpense2.addEventListener('click',()=>{
+        tableExpense.classList.remove('hide')
+    }); 
+    exitExpense1.addEventListener('click',()=>{
+        tableExpense.classList.add('hide');
+    })
+    exitExpense2.addEventListener('click',()=>{
+        tableExpense.classList.add('hide');
+    })
+    createHandleExpense();
+    displayEx(dataUser)
+    searchEx();
+    let colorEven = document.querySelectorAll('#main table tr:nth-child(even)');
+    for(let color of colorEven){
+         color.style.backgroundColor='lightgrey';
     }
-    sumTotalExpense.innerText=`${sumValueExpense} VND`
-    const sumMoneyExpense=document.querySelector('#expense h2 sub');
-    sumMoneyExpense.innerHTML=`(Tổng tiền: <span style="color:red";>${Intl.NumberFormat().format(sumValueExpense)} VND</span>)`
-})
+    
+}
+    
+
     let menuAsideExpense= document.querySelectorAll('aside ul.menu > li');
 menuAsideExpense[0].onclick=()=>{
     window.location.href="./dasdboard.html";
@@ -286,5 +326,4 @@ seeExpenseExpense.onclick=()=>{
 }
 menuAsideExpense[4].onclick=()=>{
     window.location.href="./graph.html";
-}
 }

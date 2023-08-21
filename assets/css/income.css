@@ -227,3 +227,10 @@ table tr td input:focus{
     animation-iteration-count: infinite;
 }
 
+
+.delete:hover {
+    outline: 2px solid #000;
+}
+.edit:hover{
+    outline: 2px solid #000;
+}
