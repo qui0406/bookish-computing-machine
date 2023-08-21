@@ -43,8 +43,7 @@ function handleLogin(data){
             ok=true;
             return;  
        }
-        if(item.username==uname_login && item.password==pw_login){
-            
+        if(item.username==uname_login && item.password==pw_login){       
             localStorage.setItem("user",item.username);
             localStorage.setItem("id",item.id);
             window.location.href="./dasdboard.html";
@@ -57,9 +56,6 @@ function handleLogin(data){
        alert('Tài khoản hoặc mật khẩu không chính xác')
     }
 }
-
-
-
 
 function createUser(data, callback){
     fetch(apiUser, {
