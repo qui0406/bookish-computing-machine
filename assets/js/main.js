@@ -1,9 +1,24 @@
 let prevents= document.querySelectorAll('aside ul li a');
 let tmp;
 var tmpEx;
+let taskBar=document.querySelector('nav .showTask_bar');
+let asideMenu=document.querySelector('#main aside');
+let opacity=document.querySelector('.box_opacity');
+
+taskBar.onclick=()=>{
+    opacity.classList.remove('hide')
+    asideMenu.classList.toggle('animate__slideOutLeft');
+    asideMenu.classList.add('animate__slideInLeft');
+}
+opacity.onclick=()=>{
+    opacity.classList.add('hide')
+    asideMenu.classList.add('animate__slideOutLeft');
+
+}
 
 let hea=document.querySelector('nav');
 hea.scrollIntoView(true);
+
 let asi=document.querySelector('aside');
 asi.scrollIntoView(true);
 
@@ -19,10 +34,14 @@ for(let prevent of prevents){
 }
 
 const grogress=document.querySelector('main .grogress');
+let grogress_icon=document.querySelector('main .grogress i');
 function loadTimeOut(){
     grogress.classList.add('active');
+    grogress_icon.classList.add('active');
+
     setTimeout(()=>{
         grogress.classList.remove('active');
+        grogress_icon.classList.remove('active');
         window.location='/trangBia.html';
     }, 2000);
 }
@@ -32,18 +51,42 @@ let nav= document.querySelector('nav');
 let aside=document.querySelector('aside');
 let main=document.querySelector('#main')
 
-window.onscroll=()=>{
-    if(window.scrollY>img_nav.clientHeight-2){
-        nav.style.position='fixed';
-        aside.style.display='flex';
-        main.style.marginTop=`${nav.offsetHeight}px`
+if(document.getElementById('main').offsetWidth>800){
+    window.onscroll=()=>{
+        if(window.scrollY>=img_nav.clientHeight-2){
+            nav.style.position='fixed';
+            aside.style.display='flex';
+            main.style.marginTop=`${nav.offsetHeight}px`;
+            asideMenu.classList.remove('animate__slideOutLeft');
+            asideMenu.classList.add('animate__slideInLeft');
+            
+        }
+        else{
+            main.style.marginTop=0;
+            nav.style.position='static';
+            asideMenu.classList.remove('animate__slideInLeft');
+            asideMenu.classList.add('animate__slideOutLeft');
+        }
     }
-    else{
-        main.style.marginTop=`0`
-        nav.style.position='static';
-        aside.style.display='none';
+    
+}
+else{
+    window.onscroll=()=>{
+        if(window.scrollY>=img_nav.clientHeight-2){
+            nav.style.position='fixed';
+            aside.style.display='flex';
+            main.style.marginTop=`${nav.offsetHeight}px`;
+        }
+        else{
+            main.style.marginTop=0;
+            nav.style.position='static';
+            asideMenu.classList.remove('animate__slideInLeft');
+            asideMenu.classList.add('animate__slideOutLeft');
+        }
     }
 }
+
+
 
 let accountUser=document.querySelector('nav > div >div');
 accountUser.innerText=localStorage.getItem('user');
@@ -80,20 +123,4 @@ exitLogout.onclick=()=>{
 
 
 // Responsive
-
-const bodyWitdh=document.querySelector('body')
-let showTaskBar=document.querySelector('nav .showTask_bar');
-const aside1 =document.querySelector('#main aside');
-const allExpense=document.getElementById('expense');
-
-
-if(bodyWitdh.offsetWidth+17<780){
-    showTaskBar.onclick=()=>{
-        aside1.classList.toggle('none');
-    }
-    allExpense.onclick=()=>{
-        aside1.classList.add('none');
-    }
-}
-
 

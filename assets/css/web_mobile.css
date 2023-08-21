@@ -2,11 +2,18 @@
     main{
         height: 130vh;
     }
+    .box_opacity{
+        transform: translateX(150rem);
+    }
 }
 @media screen and (max-width: 1200px){
     #main aside {
         top: 3rem;
         width: 17%;
+    }
+    .box_opacity{
+        transform: translateX(150rem);
+        
     }
     main .fake_box {
         width: 20%;
@@ -32,6 +39,10 @@
 @media screen and (max-width: 971px){
     main{
         height: 100vh;
+    }
+    .box_opacity{
+        transform: translateX(150rem);
+        
     }
     #main{
         height: 150vh;
@@ -121,6 +132,9 @@
 @media screen and (max-width: 800px){
     .showTask_bar{
         display: block;
+    }
+    .box_opacity{
+        transform: translateX(0);
     }
     #main aside ul > li div >i{
         display: inline;

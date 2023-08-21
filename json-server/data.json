@@ -6,36 +6,12 @@
       "password": 123,
       "income": [
         {
-          "type": "dfasc",
-          "money": "241432",
-          "date": "2023-08-17",
-          "note": "fwqafs",
-          "time": "21:04",
-          "id": 11
-        },
-        {
-          "type": "2",
-          "money": "287382174",
-          "date": "2023-08-20",
-          "note": "qwkeduhukasc",
-          "time": "13:48",
-          "id": 12
-        },
-        {
-          "type": "iuywqiu",
-          "money": "202031",
-          "date": "2023-08-20",
-          "note": "fqjf",
-          "time": "14:02",
-          "id": 13
-        },
-        {
-          "type": "iwedugcb",
-          "money": "2312",
-          "date": "2023-08-20",
-          "note": "kjdz",
-          "time": "14:04",
-          "id": 14
+          "type": "Lương",
+          "money": "10000000",
+          "date": "2023-08-21",
+          "note": "asd",
+          "time": "09:41",
+          "id": 1
         }
       ],
       "expense": [
@@ -78,14 +54,6 @@
           "note": "ửqfaws",
           "time": "16:11",
           "id": 5
-        },
-        {
-          "type": "Ăn uống",
-          "money": "15000",
-          "date": "2023-08-19",
-          "note": "rwqasf",
-          "time": "12:23",
-          "id": 7
         },
         {
           "type": "Ăn uống",

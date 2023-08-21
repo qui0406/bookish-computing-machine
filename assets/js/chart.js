@@ -47,7 +47,9 @@ function graphDay(){
     let manyDate=d.getDate();
 
     // bat dau tu thu 2
-    let addMilisecondInWeek=(thu-1)*86400000;
+    
+  let addMilisecondInWeek=(thu===0)?6*86400000:(thu-1)*86400000;
+
     let minisecondWeeks=Math.floor(manyDate/7)*604800000;
     let sumMilisecondInDay=hours*60*60*1000+ minutes*60*1000 + seconds*1000+ miliseconds;
     let sumMilisecondInWeek=addMilisecondInWeek+sumMilisecondInDay;
@@ -334,7 +336,7 @@ function graphMonth(){
   let seconds=d.getSeconds();
   let manyDate=d.getDate();
   // bat dau tu thu 2
-  let addMilisecondInWeek=(thu-1)*86400000;
+  let addMilisecondInWeek=(thu===0)?6*86400000:(thu-1)*86400000;
   let minisecondWeeks=Math.floor(manyDate/7)*604800000;
   let sumMilisecondInDay=hours*60*60*1000+ minutes*60*1000 + seconds*1000+ miliseconds;
   let sumMilisecondInWeek=addMilisecondInWeek+sumMilisecondInDay;

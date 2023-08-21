@@ -99,7 +99,18 @@ nav h1 {
     margin: auto 0;
     color: #fff;
 }
+aside {
+    position: relative;
+}
 
+.box_opacity{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9;
+}
 aside{
     display: none;
     position: fixed;
@@ -107,7 +118,9 @@ aside{
     z-index: 9;
     bottom: 0;
 }
-
+#main{
+    position: relative;
+}
 .menu {
     background-color:#4D16AB;
     width: 100%;
@@ -202,7 +215,14 @@ main .contain {
         opacity: 0;
     }
 }
-
+@keyframes rotate1 {
+    from{
+        transform: rotate(0);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
 
 
 /* Dang xuat */
@@ -295,7 +315,7 @@ main .contain {
  .grogress i{
      position: absolute;
      font-size: 60px;
-     animation: rotate 2s infinite;
+     animation: rotate1 2s infinite;
      top: 45%;
      right: 45%;
  
