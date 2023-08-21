@@ -48,8 +48,6 @@ function handleLogin(data){
             localStorage.setItem("user",item.username);
             localStorage.setItem("id",item.id);
             window.location.href="./dasdboard.html";
-            // let user_nav=document.querySelector('nav .user_src >div');
-            // user_nav.innerText=`${item.username}`
             check=false;
         }
     });
