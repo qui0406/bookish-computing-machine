@@ -40,8 +40,8 @@ section.overplay{
     display: flex;
     position: absolute;
     width: 100vw;
-    height: 100vh;
-    backdrop-filter: blur(10px) brightness(.5);
+    /* height: 100vh; */
+    /* backdrop-filter: blur(10px) brightness(.5); */
 }
 
 .warn {
@@ -63,11 +63,12 @@ section.overplay{
 
 section.overplay .form{
     position: absolute;
-    top: 0;
+    top: 35%;
     left: 0;
+    bottom: 25%;
     width: 100%;
     height: fit-content;
-    background-color: aliceblue;
+    background-color: #bbb6eb;
     border-radius: 1rem;
     padding: 2rem;
 }
@@ -147,6 +148,7 @@ section.overplay .form{
 /*  */
 section.overplay .form{
     display: none;
+
 }
 
 section.overplay .form.active{

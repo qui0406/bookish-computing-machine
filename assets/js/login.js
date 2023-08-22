@@ -37,7 +37,6 @@ function handleLogin(data){
     let pw_login=document.querySelector('#pw_login').value;
     let ok=false;
     data.forEach(item => {
-       // warn.classList.remove('warning');
        
        if(item.username===''){
             ok=true;
@@ -51,8 +50,7 @@ function handleLogin(data){
         }
     });
    
-    if(check){
-       // warn.classList.add('warning');       
+    if(check){   
        alert('Tài khoản hoặc mật khẩu không chính xác')
     }
 }
@@ -82,13 +80,24 @@ function handleCreateForm(){
         income:[],
         expense:[]
     }
-    if(pw_signup!=pw2_signup){
-        alert('Mật khẩu không trùng khớp')
-        return;
-    }
-    else{
-        createUser(user);
-    }
+    fetch(apiUser).then(res=>res.json()).then(data=>{
+        for(let i=0; i<data.length; i++){
+            if(uname_signup==data[i].username){
+                alert("Tài khoản này đã tồn tại!!!");
+                return;
+            }
+            else if(pw_signup!=pw2_signup){
+                alert('Mật khẩu không trùng khớp')
+                return;
+            }
+            else{
+                createUser(user);
+                alert("Đăng ký thành công")
+            }
+        }
+    });
+   
+   
 }
 
 function add_active() {

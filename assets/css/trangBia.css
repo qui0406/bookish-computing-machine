@@ -7,13 +7,12 @@
     --primary: #8a57e9;
     --secondary: #4c75e6;
 }
-
 body {
     position: relative;
     width: 100vw;
     height: 100vh;
     overflow-x: hidden;
-    background-image: linear-gradient(to right bottom , var(--primary), var(--secondary));
+    background: aliceblue;
 }
 .flex {
     display: flex;
@@ -28,7 +27,7 @@ nav {
     justify-content: space-between;
     overflow:hidden;
     background-image: linear-gradient(to right bottom , var(--primary), var(--secondary));
-    box-shadow: 3px 3px 3px #000;
+    box-shadow: 2px 2px 2px #000;
     position: fixed;
     top: 0;
     left: 0;
@@ -37,7 +36,8 @@ nav {
 .nav h1 {
     margin: auto 0;
     padding-left: 2rem;
-    color: #fff;
+    color: red;
+    text-shadow: 2px 2px 2px #000;
 }
 .nav ul> li {
     list-style-type: none;
@@ -58,27 +58,37 @@ nav {
     border-right: 1px solid #330aa5;
     border-left: 1px solid #ccc;
 }
-
 main {
     margin-top: 5rem;
+    height: 500px;
+    display: flex;
 }
 main h2 {
-    color: #fff;
+    color: #f00;
     margin: 3rem;
 }
 main div p{
     font-size: 18px;
     font-weight: 700;
-    color: #fff;
+    color: #000;
     margin: 2rem;
+    
+}
+main div .box_p{
+    overflow: scroll;
+    height: 50%;
+    border: 1px solid #000;
 }
 
 main .imgs{
     margin-top: 3rem;
     text-align: center;
+    margin-bottom: 2rem;
 }
 main .imgs img {
-    width: 60%;
+    width:80%;
+    display: block;
+    margin: 0 auto;
 }
 
 @keyframes slidetoRight {
@@ -114,5 +124,68 @@ main .imgs img {
     100%{
         opacity: 1;
         scale: 1;
+    }
+}
+footer{
+    display: flex;
+    margin-top: 3rem;
+    justify-content: space-around;
+    background-color: #13131d;
+    color: #fff;
+    height: 300px;
+}
+footer h3{
+    margin: .5rem;
+}
+footer div{
+    line-height: 1.6;
+}
+footer div i{
+    margin: .5rem;
+}
+
+@media screen and (max-width:800px){
+    main{
+        display: block;
+    }
+    footer{
+        display: block;
+        margin-top: 450px;
+    }
+}
+@media screen and (max-width:570px){
+    nav h1{
+        display: none;
+    }
+    main{
+        display: block;
+    }
+    footer{
+        display: block;
+        margin-top: 450px;
+    }
+}
+@media screen and (max-width:460px){
+    nav h1{
+        display: none;
+    }
+    main{
+        display: block;
+    }
+    footer{
+        display: block;
+        margin-top:550px;
+    }
+}
+@media screen and (max-width:380px){
+    nav h1{
+        display: none;
+    }
+    main{
+        display: block;
+    }
+    footer{
+        display: block;
+        margin-top:700px;
     }
 }

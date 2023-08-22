@@ -5,7 +5,7 @@ let taskBar=document.querySelector('nav .showTask_bar');
 let asideMenu=document.querySelector('#main aside');
 let opacity=document.querySelector('.box_opacity');
 
-taskBar.onclick=()=>{
+taskBar.onclick=function(){
     opacity.classList.remove('hide')
     asideMenu.classList.toggle('animate__slideOutLeft');
     asideMenu.classList.add('animate__slideInLeft');
