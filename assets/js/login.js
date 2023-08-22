@@ -8,6 +8,7 @@ loginBtn.addEventListener('click', async ()=>{
 const signUpBtn =document.querySelector('#signup-btn');
 signUpBtn.onclick= ()=>{
     handleCreateForm();
+    
 }
 
 const btnChangeForward = [
@@ -81,16 +82,23 @@ function handleCreateForm(){
         expense:[]
     }
     fetch(apiUser).then(res=>res.json()).then(data=>{
-        for(let i=0; i<data.length; i++){
-            if(uname_signup==data[i].username){
-                alert("Tài khoản này đã tồn tại!!!");
-                return;
+        if(data.length===0){
+            createUser(user)
+            alert("Đăng ký thành công")
+        }
+        else{
+            let check=true;
+            for(let i=0; i<data.length; i++){
+                if(uname_signup==data[i].username){
+                    alert("Tài khoản này đã tồn tại!!!");
+                    check=false;
+                }
+                else if(pw_signup!=pw2_signup){
+                    alert('Mật khẩu không trùng khớp')
+                    check=false;
+                }
             }
-            else if(pw_signup!=pw2_signup){
-                alert('Mật khẩu không trùng khớp')
-                return;
-            }
-            else{
+            if(check){
                 createUser(user);
                 alert("Đăng ký thành công")
             }

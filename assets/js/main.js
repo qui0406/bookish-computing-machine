@@ -1,10 +1,11 @@
 let prevents= document.querySelectorAll('aside ul li a');
 let tmp;
 var tmpEx;
-let taskBar=document.querySelector('nav .showTask_bar');
+
 let asideMenu=document.querySelector('#main aside');
 let opacity=document.querySelector('.box_opacity');
 
+let taskBar=document.querySelector('nav .showTask_bar');
 taskBar.onclick=function(){
     opacity.classList.remove('hide')
     asideMenu.classList.toggle('animate__slideOutLeft');
@@ -86,9 +87,6 @@ else{
     }
 }
 
-// function hover(){
-//     style.backgroundColor='green';
-// }
 
 let accountUser=document.querySelector('nav > div >div');
 accountUser.innerText=localStorage.getItem('user');

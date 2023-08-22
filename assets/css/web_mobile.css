@@ -447,6 +447,7 @@
     .dasdboard :nth-child(2) .target{
         width: 98%;
         overflow: hidden;
+        height: fit-content;
     }
     .dasdboard :nth-child(2) .target h2{
         font-size: 18px !important;
@@ -471,6 +472,7 @@
     }
     .moneyCurrent{
         width: 95%;
+
     }
     .incomeMoney h2{
         font-size: 20px;
